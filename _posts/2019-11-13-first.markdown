@@ -1,0 +1,14 @@
+---
+layout: default
+title:  "First Post"
+permalink: /posts/first/
+categories: post
+description: (not) First desc
+---
+First post, just a test.
+
+Post pertama, hanya tes.
+
+<br>
+<br>
+\\:D/
