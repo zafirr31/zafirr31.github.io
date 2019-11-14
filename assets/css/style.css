@@ -1,3 +1,8 @@
+---
+---
+
+@import "{{ site.theme }}";
+
 /*! normalize.css 2012-02-07T12:37 UTC - https://github.com/necolas/normalize.css */
 /* ============================================================================= HTML5 display definitions ========================================================================== */
 /* Corrects block display not defined in IE6/7/8/9 & FF3 */
