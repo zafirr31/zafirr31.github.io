@@ -1,0 +1,18 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+@media print, screen and (max-width: 480px) {
+
+  #header {
+    margin-top: 0px;
+  }
+
+  section {
+    margin-top: 40px;
+  }
+  nav {
+    display: block;
+  }
+}

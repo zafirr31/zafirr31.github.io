@@ -12,7 +12,7 @@ _Untuk bahasa Indonesia, silakan klik link [ini](#indonesian)_
 CTF Compfest 11 was the first time I've ever became a problem setter for any programming based competition. I ended up making 4 problems, 3 for qualifiers and 1 for finals. I will be explaining how to solve all problems in this post.
 
 ## 1. Optimus Prime (Cryptography)
-All files needed to solve this problem can be found [here](https://google.com)
+All files needed to solve this problem can be found [here](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
 
 Optimus prime is an [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) focused problem. Players were given two files, nums.txt and rsa.txt. The file rsa.txt consisted of 2 numbers, which were the public exponent (e) and the ciphertext (c). Now if you know anything about RSA, you would know that a modulus (N) is required. In this problem, the modulus N was hidden within the file nums.txt. The file nums.txt consisted of 10^7 random numbers, but unlike how most problems would be designed, the 10^7 numbers within nums.txt did not include the modulus (N).
 
@@ -148,7 +148,7 @@ Flag: COMPFEST11{z4fIRr_i5_aW3s0me_ya}
 <br>
 
 ## 2. red pill or blue pill (Reversing)
-All files needed to solve this problem can be found [here](https://google.com)
+All files needed to solve this problem can be found [here](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
 
 I'm actually most proud of this problem, it was the first time I've coded in pure nasm :).
 
@@ -599,7 +599,7 @@ Next time i'll make the logic harder, but give the source, it seems like the bet
 <br>
 
 ## 4. Fruity Goodness (Binary Exploitation)
-All files needed to solve this problem can be found [here](https://google.com)
+All files needed to solve this problem can be found [here](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
 
 Fruity goodness is a heap-based Binary Exploitation problem that took most its inspiration from the [House of Orange](https://1ce0ear.github.io/2017/11/26/study-house-of-orange/) Exploit. I wanted to make this problem reflect a [Pokemon](https://www.pokemon.com/us/) game, I kinda succeded I guess (?)
 
@@ -1070,7 +1070,7 @@ In my part I apologize if my problem ended up being to annoying to solve. I was 
 CTF Compfest 11 merupakan pertama kali aku menjadi pembuat soal untuk lomba pemograman. Saya telah membuat 4 soal, 3 untuk kualifikasi dan 1 untuk final. Aku akan menjelaskan cara menyelesaikan semua soal pada post ini.
 
 ## 1. Optimus Prime (Kriptografi)
-Semua file yang saya gunakan untuk menyelesaikan soal ini terdapat [disini](https://google.com)
+Semua file yang saya gunakan untuk menyelesaikan soal ini terdapat [disini](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
 
 Optimus prime merupakan soal kriptografi yang berdasar [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)). Pemain diberi 2 file, yaitu nums.txt dan rsa.txt. File rsa.txt berisi 2 angka, yaitu _public exponent_ (e) dan _ciphertext_ (c). Nah jika anda sudah mengerti RSA, pasti anda tau bahwa untuk melakukan enkripsi dan dekripsi dibutuhkan suatu modulus (N). Pada soal ini, modulus N disembunyikan di dalam file nums.txt. file nums.txt berisi 10^7 angka random, tapi berbeda dari soal biasa, modulus N tidak terdapat di dalam file nums.txt.
 
@@ -1206,7 +1206,7 @@ Flag: COMPFEST11{z4fIRr_i5_aW3s0me_ya}
 <br>
 
 ## 2. red pill or blue pill (Reversing)
-Semua file yang saya gunakan untuk menyelesaikan soal ini terdapat [disini](https://google.com)
+Semua file yang saya gunakan untuk menyelesaikan soal ini terdapat [disini](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
 
 Aku sebenarnya paling bangga dengan soal ini, sebab ini pertama kali saya ngoding pure dengan nasm :)
 
@@ -1656,7 +1656,7 @@ Lain kali aku buat programnya lebih susah, tapi source code diberi, sepertinya i
 <br>
 
 ## 4. Fruity Goodness (Binary Exploitation)
-Semua file yang saya gunakan untuk menyelesaikan soal ini terdapat [disini](https://google.com)
+Semua file yang saya gunakan untuk menyelesaikan soal ini terdapat [disini](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
 
 Fruity goodness adalah soal Binary Exploitation yang didasari heap, dengan sebagian besar inspirasinya didapatkan dari Exploit [House of Orange](https://1ce0ear.github.io/2017/11/26/study-house-of-orange/). Aku sebenarnya ingin buat soal yang mirip permainan [Pokemon](https://www.pokemon.com/us/), dan sepertinya berhasil(?)
 
