@@ -61,4 +61,4 @@ google_analytics: UA-152635135-1
 disqus:
     # Leave shortname blank to disable comments site-wide.
     # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-    shortname: zafirrasyiditaufik
+    shortname: zafir-ghpages-blog
