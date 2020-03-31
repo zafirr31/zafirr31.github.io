@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title:  "[Long Overdue] CTF Compfest 11 Writeups"
 description: Sorry :v
 permalink: /posts/long-overdue-ctf-compfest-11-writeups/

@@ -1,0 +1,9 @@
+---
+layout: default
+---
+
+{{ content }}
+
+{% if jekyll.environment == 'production' %}
+{% include disqus.html %}
+{% endif %}

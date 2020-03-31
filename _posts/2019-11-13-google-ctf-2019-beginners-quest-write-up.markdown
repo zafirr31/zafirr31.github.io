@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title:  "Google CTF 2019 Beginners Quest Write Up"
 description: Super fun -zafirr
 permalink: /posts/google-ctf-2019-beginners-quest-write-up/
