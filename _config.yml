@@ -54,6 +54,15 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+include:
+    - _layouts/
+    - _includes/
+    - _sass/
+
+# layouts:  /_layouts
+# sass:
+    # sass_dir: /_sass/
+
 # Google Analytics
 google_analytics: UA-152635135-1
 
