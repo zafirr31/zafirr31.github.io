@@ -2,7 +2,7 @@
 layout: post
 title:  "My 3 favorite CTF problems from 2020"
 description: From Indonesian CTF's
-permalink: /posts/google-ctf-2019-beginners-quest-write-up/
+permalink: /posts/my-three-favorite-ctf-problems-from-2020/
 categories: post
 ---
 

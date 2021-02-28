@@ -22,7 +22,7 @@ Ok before talking about the solution let's look into a few numbers in nums.txt f
 
 ![Error](/assets/images/Optimus-Prime-1.png)
 
-It might now seem obvious at first, below is the solution.
+It might not seem obvious at first, below is the solution.
 
 To solve this problem, a little insight is needed, which is that the factors that make up N are PRIME! And unlike pure bruteforcing, using something like [Fermat primality test](https://en.wikipedia.org/wiki/Fermat_primality_test) or [Miller-Rabin primality test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test) is super fast. According to [StackOverflow](https://math.stackexchange.com/questions/379592/computing-the-running-time-of-the-fermat-primality-test), the complexity of the fermat primality test is O(k * log n * log n * log n), which is really fast. Also, the probabilty of getting a Carmichael number is really low, around 0.00000017, so the number of possible primes that remain out of 10^7 numbers should be pretty low.
 
