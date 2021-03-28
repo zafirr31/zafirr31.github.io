@@ -290,7 +290,7 @@ Detail tambahan:
 
 Ya itu aja. Beberapa orang mungkin mengenal jenis soal ROP begini dari situs [pwnable.tw](https://www.pwnable.tw/). Terdapat 3 soal pada situs tersebut yang mirip dengan yang ini (unexploitable, Kidding, De-ASLR). Dari dekompilasi dan proteksinya, aku suka melihat soal ini sebagai gabungan dari ketiganya.
 
-Kalau mau dicoba soalnya, download [disini](https://drive.google.com/drive/folders/1c0BaG-S18iTLihSoEnz0B_BcrzqDb8uT?usp=sharing)
+Kalau mau dicoba soalnya, download [di sini](https://drive.google.com/drive/folders/1c0BaG-S18iTLihSoEnz0B_BcrzqDb8uT?usp=sharing)
 
 Sebelum aku lanjut, aku saranin coba dulu soal unexploitable, Kidding, dan De-ASLR, karena solusi untuk soal ini dapat digunakan untuk menyelesaikan soal-soal itu juga. Coba aja sebulan dua bulan, sangat berguna kalau mau lebih jago binex.
 
@@ -459,7 +459,7 @@ Tunggu, kita belum punya shellcode di bss. Gak masalah kok, kita punya gadget ya
 
 Pada akhirnya, kurang dari 100 byte lagi yang bisa diinput :v
 
-Kalau semua udah dibuat, shell jalan ada reverse shell.
+Kalau semua udah dibuat, shell jalan pada reverse shell.
 
 ![Error](/assets/images/Hardest_ROP/25.png)
 
