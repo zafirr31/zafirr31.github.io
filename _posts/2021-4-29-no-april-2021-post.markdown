@@ -1,0 +1,23 @@
+---
+layout: post
+title:  "No April 2021 post"
+description: "Burnt out"
+permalink: /posts/no-april-2021-post/
+categories: post
+---
+
+_Untuk bahasa Indonesia, silakan klik link [ini](#bahasa-indonesia)_
+
+## English
+Excluding this, there will be no April 2021 post. Kinda feeling burnt out from homework, which is mostly writing this semester. I have like 3 classes that have writing homework, 2 of them having long writing projects. I also did a side competition the other day where I had to write a 15 page paper. All this made me burnt out, so no post this month, I'll repay it someday.
+
+I have plans on what I want to write, 1 about VPN's, 1 about Cyber Sec in general, and 1 about blockchain, but they require a lot of reading so I can't promise they'll be done quickly. Thanks all for reading this :)
+
+<br>
+<br>
+<br>
+
+## Bahasa Indonesia
+Selain ini, tidak akan ada postingan untuk April 2021. Aku lumayan capek karena banyak tugas, sebagian besarnya tugas nulis lagi. Aku ada 3 kelas yang punya tugas nulis, 2 darinya projek. Aku ada ikut lomba juga kemarin itu yang perlu nulis KTI 15 halaman. Semua ini buat aku kecapean, jadi gaada postingan bulan ini, kapan-kapan aku ganti deh.
+
+Aku udah ada rencana sih, 1 tentang VPN, 1 tentang keamanan siber secara umum, dan 1 tentang blockcahin, tapi ya butuh waktu baca dulu jadi gaada janji mereka selesai dengan cepat. Terima kasih semua yang udah membaca :)
