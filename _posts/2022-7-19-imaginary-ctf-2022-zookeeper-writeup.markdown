@@ -98,8 +98,6 @@ tcache_put (mchunkptr chunk, size_t tc_idx)
 
 "tcache" is a global variable that points to the tcache_perthread_struct in the heap. This happens after freeing a chunk (not always, but the specific case is outside of the scope I want to explain), so the address of the tcache_perthread_struct is kept at the second word of a freed tcache chunk! This is why freeing the metadata chunk and then the name chunk is a bug!
 
-"tcache" merupakan variabel global yang menunjuk pada 
-
 ### Continuing Arbitrary Read
 Now that we were able to free tcache_perthread_struct, we can use it to get an arbitrary read. To do that, we need to utilize the other 2 bugs I said to note.
 
@@ -322,7 +320,7 @@ tcache_put (mchunkptr chunk, size_t tc_idx)
 }
 ```
 
-"tcache" merupakan variabel global yang menunjuk pada tcache_perthread_struct di heap. Ini terjadi setelah melakukan free pada sebuah chunk (tidak selalu, tapi kasus spesifiknya diluar hal yang saya mau jelaskan), jadi alamat dari tcache_perthread_struct tersimpan pada word kedua pada sebuah chunk tcache yang di free. Inilah alasan mengapa melakukan free pada chunk metadata lalu chunk nama merupakan sebuah bug!
+"tcache" merupakan variabel global yang menunjuk pada `tcache_perthread_struct di heap. Ini terjadi setelah melakukan free pada sebuah chunk (tidak selalu, tapi kasus spesifiknya diluar hal yang saya mau jelaskan), jadi alamat dari tcache_perthread_struct tersimpan pada word kedua pada sebuah chunk tcache yang di free. Inilah alasan mengapa melakukan free pada chunk metadata lalu chunk nama merupakan sebuah bug!
 
 ### Melanjutkan Arbitrary Read
 Disebabkan kita berhasil melakukan free pada tcache_perthread_struct, kita bisa mendapatkan arbitary read. Untuk melakukan itu, kita perlu menggunakan 2 bug lainnya yang saya suruh catat.
