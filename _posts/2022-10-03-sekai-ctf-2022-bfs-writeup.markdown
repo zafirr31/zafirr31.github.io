@@ -3,7 +3,7 @@ layout: post
 title:  "SEKAI CTF 2022 bfs writeup"
 description: "I cant believe my chall was blooded last"
 permalink: /posts/sekai-ctf-2022-bfs-writeup/
-categories: post
+categories: writeup
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#bahasa-indonesia)_
@@ -22,9 +22,8 @@ The challenge I made was a c++ binary, that accepts a graph in the form of an ed
 
 0-indexed though, eh thats fine. Explanation of the input: The first line is the number of testcases, for each testcase, the first like is the number of nodes (_N_) and the number of edges  (_K_). The next _K_ lines is the graph in edge list form, and the last line is the to and from nodes. I was inspired to make this chall from 2 factors:
 
-1, an algorithm pwn chall is a specialty of the legend Fariskhi Vidyan, so I wanted to try to make one too
-
-2, many people have said heapnotes are boring
+1. an algorithm pwn chall is a specialty of the legend Fariskhi Vidyan, so I wanted to try to make one too
+2. many people have said heapnotes are boring
 
 > Feel free stop here and try the challenge first! It took 44 hours before first blood on this chall, maybe you can do it faster!
 
@@ -133,7 +132,7 @@ This is how:
 This is actually tough, and it required me to restructure my exploit a couple times. Anything can break at any point.
 
 ### Final step
-Parent array now points to 3 double words before itself. Using the parent array itself, we can change it so that it points to the got. From there, we can leak any glibc value in the got. To pop a shell, we can use the parent array yet again to change the operator<< function to system, and change the first double word in cout struct (also in bss btw) to /bin/sh. The next call to operator<< will pop a shell!
+Parent array now points to 3 double words before itself. Using the parent array itself, we can change it so that it points to the got. From there, we can leak any glibc value in the got. To pop a shell, we can use the parent array yet again to change the `operator<<` function to system, and change the first double word in cout struct (also in bss btw) to /bin/sh. The next call to `operator<<` will pop a shell!
 
 Full exploit:
 

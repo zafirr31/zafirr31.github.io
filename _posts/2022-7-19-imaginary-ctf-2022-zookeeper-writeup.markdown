@@ -3,7 +3,7 @@ layout: post
 title:  "Imaginary CTF 2022 zookeeper writeup"
 description: "Active again!"
 permalink: /posts/imaginary-ctf-2022-zookeeper-writeup/
-categories: post
+categories: writeup
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#bahasa-indonesia)_

@@ -3,7 +3,7 @@ layout: post
 title:  "The Hardest ROP problem"
 description: "*That I've solved"
 permalink: /posts/the-hardest-ROP-problem/
-categories: post
+categories: writeup research
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#bahasa-indonesia)_

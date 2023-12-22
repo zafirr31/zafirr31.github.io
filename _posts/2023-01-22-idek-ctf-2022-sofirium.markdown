@@ -3,7 +3,7 @@ layout: post
 title:  "IDEK CTF 2022 Sofire=good writeup"
 description: "Kernel heap freelist is easier to exploit than tcache"
 permalink: /posts/idek-ctf-2022-sofire_good-writeup/
-categories: post
+categories: writeup
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#bahasa-indonesia)_

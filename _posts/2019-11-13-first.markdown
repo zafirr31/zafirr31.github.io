@@ -2,7 +2,7 @@
 layout: post
 title:  "First Post"
 permalink: /posts/first/
-categories: post
+categories:
 description: (not) First desc
 ---
 First post, just a test.

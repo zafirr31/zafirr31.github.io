@@ -3,7 +3,7 @@ layout: post
 title:  "[Long Overdue] CTF Compfest 11 Writeups"
 description: Sorry :v
 permalink: /posts/long-overdue-ctf-compfest-11-writeups/
-categories: post
+categories: writeup
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#indonesian)_

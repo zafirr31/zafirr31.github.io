@@ -1,65 +1,36 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-title: Zafirr's blog :L
+title: "Zafirr's Blog"
 email: zafir.r.taufik@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Stuff
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "zafirr31.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github: [metadata]
+description: "TODO"
+baseurl: ""
+url: "https://zafirr.dev/"
+title_description: "TODO"
+title_image: "https://www.gravatar.com/avatar/00000000000000000000000000000000?s=500&d=mm"
+github_repository: 
+addthis_id: 
+post_limit: 5
+
+# Social usernames/URLs
+twitter_username: 
 github_username:  zafirr31
-permalink: pretty
+instagram_username: 
+reddit_username: 
+linkedin_link: https://www.linkedin.com/in/zafir-rasyidi-taufik/
+google_plus_link: 
+stackoverflow_link: 
+xing_link:
+facebook_link:
+
+# Footer
+footer_left: "Theme by <a href=\"https://twitter.com/_JacobTomlinson\">Jacob Tomlinson</a>, thanks a lot!"
+footer_right: ""
 
 # Build settings
-theme: jekyll-theme-midnight
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+markdown: kramdown
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-exclude:
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
-  - Gemfile
-  - Gemfile.lock
-  - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
-# Google Analytics
-google_analytics: UA-152635135-1
-
-# Disqus Comments
-disqus:
-    # Leave shortname blank to disable comments site-wide.
-    # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-    shortname: zafir-ghpages-blog
-    
+permalink: pretty
+exclude: [vendor]

@@ -1,45 +1,19 @@
-<!doctype html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!DOCTYPE html>
+<html>
 
-{% seo %}
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="{{ '/assets/js/respond.js' | relative_url }}"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="{{ '/assets/css/ie.css' | relative_url }}">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-{% if site.google_analytics and jekyll.environment == 'production' %}
-{% include analytics.html %}
-{% endif %}
+    {% include head.html %}
 
-  </head>
-  <body>
-      <div id="header">
-        {% include navbar.html %}
-      </div><!-- end header -->
+    <body>
 
-    <div class="wrapper">
+    {% include header.html %}
 
-      <section>
-        <div id="title">
-          <h1>{{ page.title | default: site.title }}</h1>
-          <p>{{ page.description | default: site.description }}</p>
-          <hr>
-        </div>
-
-        {{ content }}
-
-      </section>
-
+    <div class="page-content">
+      <div class="wrap">
+      {{ content }}
+      </div>
     </div>
 
-  </body>
+    {% include footer.html %}
+
+    </body>
 </html>
