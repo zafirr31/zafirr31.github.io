@@ -1,10 +1,10 @@
 # Site settings
 title: "Zafirr's Blog"
 email: zafir.r.taufik@gmail.com
-description: "TODO"
+description: "Zafirr's blog about cybersecurity and other stuff "
 baseurl: ""
 url: "https://zafirr.dev/"
-title_description: "TODO"
+title_description: "Hi, this is my blog for stuff I find interesting and want to share. It can be anything, but will mostly consist of cybersecurity related stuff like CTFs and my research. If you want to contact me, you can message me on discord (id: zafirr_), or email me at zafir.r.taufik@gmail.com. Thanks!"
 title_image: "https://www.gravatar.com/avatar/00000000000000000000000000000000?s=500&d=mm"
 github_repository: 
 addthis_id: 
