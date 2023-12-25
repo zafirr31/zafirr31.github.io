@@ -4,8 +4,8 @@ email: zafir.r.taufik@gmail.com
 description: "Zafirr's blog about cybersecurity and other stuff "
 baseurl: ""
 url: "https://zafirr.dev/"
-title_description: "Hi, this is my blog for stuff I find interesting and want to share. It can be anything, but will mostly consist of cybersecurity related stuff like CTFs and my research. If you want to contact me, you can message me on discord (id: zafirr_), or email me at zafir.r.taufik@gmail.com. Thanks!"
-title_image: "https://www.gravatar.com/avatar/00000000000000000000000000000000?s=500&d=mm"
+title_description: "Hi, this is my blog for stuff I find interesting and want to share. It can be anything, but will mostly consist of cybersecurity related stuff like CTFs and my research. If you wish to contact me, please message me on discord or email me. Thanks!"
+title_image: "https://www.gravatar.com/avatar/6cdfa49a75ee00d338ea88c1ba1c24eb?s=500&d=mm"
 github_repository: 
 addthis_id: 
 post_limit: 5
@@ -20,9 +20,10 @@ google_plus_link:
 stackoverflow_link: 
 xing_link:
 facebook_link:
+discord_userid: 506294850291892226
 
 # Footer
-footer_left: "Theme by <a href=\"https://twitter.com/_JacobTomlinson\">Jacob Tomlinson</a>, thanks a lot!"
+footer_left: "Theme by <a href=\"https://carte-noire.jacobtomlinson.co.uk/\">Jacob Tomlinson</a>, thanks a lot!"
 footer_right: ""
 
 # Build settings
