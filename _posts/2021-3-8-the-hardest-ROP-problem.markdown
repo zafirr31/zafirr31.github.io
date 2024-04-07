@@ -1,9 +1,15 @@
 ---
 layout: post
+author: zafirr
 title:  "The Hardest ROP problem"
 description: "*That I've solved"
 permalink: /posts/the-hardest-ROP-problem/
 categories: writeup research
+tags:
+    - pwn
+    - buffer overflow
+    - ROP
+    - ctf
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#bahasa-indonesia)_

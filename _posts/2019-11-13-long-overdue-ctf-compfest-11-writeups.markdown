@@ -1,9 +1,13 @@
 ---
 layout: post
+author: zafirr
 title:  "[Long Overdue] CTF Compfest 11 Writeups"
 description: Sorry :v
 permalink: /posts/long-overdue-ctf-compfest-11-writeups/
 categories: writeup
+tags:
+    - ctf
+    - compfest
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#indonesian)_

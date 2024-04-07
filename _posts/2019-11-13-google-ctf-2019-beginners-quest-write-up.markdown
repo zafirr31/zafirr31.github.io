@@ -1,9 +1,13 @@
 ---
 layout: post
+author: zafirr
 title:  "Google CTF 2019 Beginners Quest Write Up"
 description: Super fun -zafirr
 permalink: /posts/google-ctf-2019-beginners-quest-write-up/
 categories: writeup
+tags:
+    - ctf
+    - beginner
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#indonesian)_

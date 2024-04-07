@@ -1,9 +1,13 @@
 ---
 layout: post
+author: zafirr
 title:  "My 3 favorite CTF problems from 2020"
 description: From Indonesian CTF's
 permalink: /posts/my-three-favorite-ctf-problems-from-2020/
 categories: writeup
+tags:
+    - pwn
+    - ctf
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#indonesian)_

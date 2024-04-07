@@ -1,9 +1,15 @@
 ---
 layout: post
+author: zafirr
 title:  "SEKAI CTF 2022 bfs writeup"
 description: "I cant believe my chall was blooded last"
 permalink: /posts/sekai-ctf-2022-bfs-writeup/
 categories: writeup
+tags:
+    - pwn
+    - c++
+    - algorithm
+    - ctf
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#bahasa-indonesia)_
@@ -281,6 +287,3 @@ Thanks again for playing SEKAI CTF 2022!!!!
 ## Bahasa Indonesia
 TODO
 
-<br>
-<br>
-<br>

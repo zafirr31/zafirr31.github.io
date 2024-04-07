@@ -1,15 +1,20 @@
 ---
 layout: post
+author: zafirr
 title:  "IDEK CTF 2022 Sofire=good writeup"
 description: "Kernel heap freelist is easier to exploit than tcache"
 permalink: /posts/idek-ctf-2022-sofire_good-writeup/
 categories: writeup
+tags:
+    - pwn
+    - kernel exploitation
+    - ctf
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#bahasa-indonesia)_
 
 ## English
-Last weekend, me and my team [Project Sekai](https://twitter.com/ProjectSEKAIctf), participated in idek ctf 2022 (held in 2023 cause it got delayed). Crazily, we won the entire CTF, and I ended with 3 first bloods in the pwn category!!! (and 1 second blood). One of the challenges was Sofire=good. This challenge was a kernel challenge, exploiting a UAF in the kmalloc-512 general cache. The author's solution was to use msg_msg, but I had a wayyyyyyyy simpler solution of abusing the kernel free list.
+Last weekend, me and my team [Project Sekai](https://twitter.com/ProjectSEKAIctf), participated in idek ctf 2022 (held in 2023 cause it got delayed). Crazily, we won the entire CTF, and I ended with 3 first bloods in the pwn category!!! (and 1 second blood). One of the challenges was Sofire=good. This challenge was a kernel challenge, exploiting a UAF in the kmalloc-512 general cache. The author's solution was to use msg_msg, but I had a simpler solution of abusing the kernel free list.
 
 ### The challenge
 This is the source of the kernel module (some parts removed for brevity):
@@ -648,6 +653,3 @@ Terima kasih idek telah mengadakan CTF yang luar biasa! Hasil yang sedikit tidak
 
 Semoga CTF idek 2023 sama tingkat kualitasnya!
 
-<br>
-<br>
-<br>

@@ -1,9 +1,12 @@
 ---
 layout: post
+author: zafirr
 title:  "The Lenstra Elliptic Curve Method of Factorization"
 description: Really cool algorithm
 permalink: /posts/lenstra-elliptic-curve-method-of-factorization/
 categories: research
+tags:
+    - crypto
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#indonesian)_

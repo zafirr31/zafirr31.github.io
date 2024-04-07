@@ -1,9 +1,14 @@
 ---
 layout: post
+author: zafirr
 title:  "Imaginary CTF 2022 zookeeper writeup"
 description: "Active again!"
 permalink: /posts/imaginary-ctf-2022-zookeeper-writeup/
 categories: writeup
+tags:
+    - pwn
+    - heap exploitation
+    - ctf
 ---
 
 _Untuk bahasa Indonesia, silakan klik link [ini](#bahasa-indonesia)_
@@ -448,6 +453,3 @@ p.interactive()
 
 Terima kasih telah membaca :)
 
-<br>
-<br>
-<br>

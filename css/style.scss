@@ -559,6 +559,22 @@ ul {
 			}
 		}
 
+        .tags {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+
+            a, a:active {
+                color: $white;
+            }
+
+            a:hover {
+                color: $light-blue;
+            }
+
+        }
+
+
 		.content {
 			font-size: 18px;
 			line-height: 170%;
@@ -685,21 +701,6 @@ ul {
 					color: $white;
 					padding: 0.5em;
 					vertical-align: middle;
-				}
-
-			}
-
-			.tags {
-				margin-top: 10px;
-				margin-bottom: 10px;
-				text-align: center;
-
-				a, a:active {
-					color: $white;
-				}
-
-				a:hover {
-					color: $light-blue;
 				}
 
 			}
