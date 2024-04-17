@@ -33,3 +33,6 @@ _site/
 
 # Ruby
 Gemfile.lock
+
+Makefile
+scripts/
