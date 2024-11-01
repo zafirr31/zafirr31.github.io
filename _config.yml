@@ -1,37 +1,48 @@
-# Site settings
-title: "Zafirr's Blog"
-email: zafir.r.taufik@gmail.com
-description: "Zafirr's blog about cybersecurity and other stuff "
-baseurl: ""
-url: "https://zafirr.dev/"
-title_description: "Hi, this is my blog for stuff I find interesting and want to share. It can be anything, but will mostly consist of cybersecurity related stuff like CTFs and my research. If you wish to contact me, please message me on discord or email me. Thanks!"
-title_image: "https://www.gravatar.com/avatar/6cdfa49a75ee00d338ea88c1ba1c24eb?s=500&d=mm"
-github_repository: 
-addthis_id: 
-post_limit: 5
+# Welcome to Jekyll Paper for Github
+#
+# This is the configuration file for your blog, please change these items after forked.
 
-# Social usernames/URLs
-twitter_username: 
-github_username:  zafirr31
-instagram_username: 
-reddit_username: 
-linkedin_link: https://www.linkedin.com/in/zafir-rasyidi-taufik/
-google_plus_link: 
-stackoverflow_link: 
-xing_link:
-facebook_link:
-discord_userid: 506294850291892226
+title: Zafirr
+email: zafirr@sekai.team
+name: Zafirr 
+description: >- # this means to ignore newlines until "baseurl:"
+  Random things about cybersecurity, compsci, and the environment 
+keywords: research, writeups, blog
+baseurl: '' # the subpath of your site, e.g. /`blog
+url: '' # the base hostname & protocol for your site, e.g. http://example.com
+domain: 'blog.zafirr.dev' # the domain name for your site, e.g. example.com
+language: en
 
-# Footer
-footer_left: "Theme by <a href=\"https://carte-noire.jacobtomlinson.co.uk/\">Jacob Tomlinson</a>, thanks a lot!"
-footer_right: ""
+comments: false # enable comments
+disqus: # disqus account
+
+mathjax: false # Math support
+diagram: false # Diagrams support
+
+paginate: 25
+paginate_path: '/page:num/'
+
+permalink: "/:path"
+
+sass:
+  sass_dir: _sass
+  style: compact # compressed, compact, expanded or compressed
 
 # Build settings
 markdown: kramdown
-
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-
-permalink: pretty
-exclude: [vendor]
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
