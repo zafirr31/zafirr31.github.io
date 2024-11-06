@@ -13,7 +13,7 @@ url: '' # the base hostname & protocol for your site, e.g. http://example.com
 domain: 'blog.zafirr.dev' # the domain name for your site, e.g. example.com
 language: en
 
-comments: false # enable comments
+comments: true # enable comments
 disqus: # disqus account
 
 mathjax: false # Math support
