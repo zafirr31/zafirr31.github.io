@@ -42,6 +42,12 @@ h6 {
   text-indent: 0;
 }
 
+h3 {
+  border-left: 0.4em solid #c0c0c0;
+  padding-left: 0.2em;
+  border-radius: 0.2em 0.2em;
+}
+
 hr {
   margin: 10px;
   border: 1px solid #eee;
@@ -53,7 +59,7 @@ img {
 
 ol,
 ul {
-  margin-left: 35px;
+  margin-left: 1em;
 }
 
 p {
