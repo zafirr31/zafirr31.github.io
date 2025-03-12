@@ -18,6 +18,11 @@
   margin: 10px auto;
 }
 
+.post-content, .post-info a {
+  border-bottom: 0.1em dashed grey; 
+  color: grey;
+}
+
 .post-info {
   line-height: 24px;
   margin: 10px 0;

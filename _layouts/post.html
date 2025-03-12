@@ -48,11 +48,12 @@ layout: default
     <div class="post-categories">
       <span>{{ site.data.lang[page.lang].post_categories }}</span>
       {% for category in page.categories %}
-      <a 
+      {{ category }}
+      <!--<a 
         href="{{ site.baseurl }}/categories#{{ category }}"
         class="post-category">
         {{ category }}
-      </a>
+      </a> -->
       {% endfor %}
     </div>
     <div class="post-tags">
