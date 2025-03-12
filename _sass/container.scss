@@ -17,7 +17,10 @@
   width: 95%;
   margin: 10px auto;
   overflow: hidden;
-  min-height: calc(100vh - 159px);
+  //min-height: calc(100vh - 159px);
+  border: solid 0.2em #aaa;
+  padding: 0.5em;
+  background: #f8f8f8;
 }
 
 .container-footer {

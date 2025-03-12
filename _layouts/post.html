@@ -34,9 +34,9 @@ layout: default
       {{ site.data.lang[page.lang].post_write_date}}
       {{ page.date | date: '%Y-%m-%d' }}
       {% if page.last_modified_at %}
-        ,
-        {{ site.data.lang[page.lang].post_update_date}}
-        {{ page.last_modified_at | date: '%Y-%m-%d' }}
+      ,
+      {{ site.data.lang[page.lang].post_update_date}}
+      {{ page.last_modified_at | date: '%Y-%m-%d' }}
       {% endif %}
       .
     </div>
@@ -49,11 +49,13 @@ layout: default
       <span>{{ site.data.lang[page.lang].post_categories }}</span>
       {% for category in page.categories %}
       {{ category }}
-      <!--<a 
+      <!--
+        <a 
         href="{{ site.baseurl }}/categories#{{ category }}"
         class="post-category">
         {{ category }}
-      </a> -->
+        </a> 
+      -->
       {% endfor %}
     </div>
     <div class="post-tags">
@@ -61,29 +63,46 @@ layout: default
       <span class="post-tag">{{ page.tags | join: ", "  }}</span>
     </div>
     <div class="post-other">
-      {% if page.next %}
+
+      {% assign posts = site.posts | where_exp:"item", "item.lang == page.lang" %}
+
+      {% for post in posts %}
+      {% if post.date < page.date %}
+        {% assign prev = post %}
+        {% break %}
+      {% endif %}
+      {% endfor %}
+
+      {% for post in posts reversed %}
+      {% if post.date > page.date %}
+        {% assign next = post %}
+        {% break %}
+      {% endif %}
+      {% endfor %}
+
+      {% if next %}
       <div>
         <span>
           {{ site.data.lang[page.lang].post_next }}
         </span>
-        <a href="{{ site.baseurl }}{{ page.next.url }}">
-          {{ page.next.title }}
+        <a href="{{ site.baseurl }}{{ next.url }}">
+          {{ next.title }}
         </a>
       </div>
       {% endif %}
-      {% if page.previous %}
+      {% if prev %}
       <div>
         <span>
           {{ site.data.lang[page.lang].post_previous }}
         </span>
-        <a href="{{ site.baseurl }}{{ page.previous.url }}">
-          {{ page.previous.title }}
+        <a href="{{ site.baseurl }}{{ prev.url }}">
+          {{ prev.title }}
         </a>
       </div>
       {% endif %}
     </div>
     {% if site.comments %}
-      {% include comments.html %}
+    {% include comments.html %}
     {% endif %}
   </div>
 </article>
