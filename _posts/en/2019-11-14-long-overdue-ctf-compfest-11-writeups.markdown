@@ -3,36 +3,36 @@ layout: post
 author: zafirr
 title:  "[Long Overdue] CTF Compfest 11 Writeups"
 description: Sorry :v
-date: 2019-11-13
-last_modified_at: 2019-11-13
+date: 2019-11-14
+last_modified_at: 2025-03-12
 categories: writeup
-lang: id
+lang: en
 tags:
     - ctf
     - compfest
 ---
 
-## Indonesian
-CTF Compfest 11 merupakan pertama kali aku menjadi pembuat soal untuk lomba pemograman. Saya telah membuat 4 soal, 3 untuk kualifikasi dan 1 untuk final. Aku akan menjelaskan cara menyelesaikan semua soal pada post ini.
+## English
+CTF Compfest 11 was the first time I've ever became a problem setter for any programming based competition. I ended up making 4 problems, 3 for qualifiers and 1 for finals. I will be explaining how to solve all problems in this post.
 
-## 1. Optimus Prime (Kriptografi)
-Semua file yang saya gunakan untuk menyelesaikan soal ini terdapat [disini](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
+## 1. Optimus Prime (Cryptography)
+All files needed to solve this problem can be found [here](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
 
-Optimus prime merupakan soal kriptografi yang berdasar [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)). Pemain diberi 2 file, yaitu nums.txt dan rsa.txt. File rsa.txt berisi 2 angka, yaitu _public exponent_ (e) dan _ciphertext_ (c). Nah jika anda sudah mengerti RSA, pasti anda tau bahwa untuk melakukan enkripsi dan dekripsi dibutuhkan suatu modulus (N). Pada soal ini, modulus N disembunyikan di dalam file nums.txt. file nums.txt berisi 10^7 angka random, tapi berbeda dari soal biasa, modulus N tidak terdapat di dalam file nums.txt.
+Optimus prime is an [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) focused problem. Players were given two files, nums.txt and rsa.txt. The file rsa.txt consisted of 2 numbers, which were the public exponent (e) and the ciphertext (c). Now if you know anything about RSA, you would know that a modulus (N) is required. In this problem, the modulus N was hidden within the file nums.txt. The file nums.txt consisted of 10^7 random numbers, but unlike how most problems would be designed, the 10^7 numbers within nums.txt did not include the modulus (N).
 
-Jadi dimana modulusnya? Daripada menyembunyikan modulus langsung di nums.txt, saya menempatkan kedua prima yang membentuk modulus didalam nums.txt. Nah mungkin anda berpikir, jika saya harus brute force 2 bilangan prima antara 10^7 angka, saya membutuhkan 10^14 komputasi untuk melakukannya, itu butuh waktu yang luar biasa lama!
+So where is the modulus? Rather than having the modulus in nums.txt, I put the 2 prime numbers that form N inside nums.txt. Now you may be thinking, if I need to brute 2 prime numbers out of 10^7 numbers, I would need to do 10^14 computations, which would take a super long time!
 
-Ok sebelum menunjukkan solusi mari kita liat beberapa angka di nums.txt terlebih dahulu.
+Ok before talking about the solution let's look into a few numbers in nums.txt first.
 
 ![Error](/assets/images/Optimus-Prime-1.png)
 
-Jika belum terlihat cara menyelesaikannya, mari liat solusinya.
+It might not seem obvious at first, below is the solution.
 
-Untuk menyelesaikan soal ini, sedikit pengetahuan dibutuhkan, yaitu bahwa faktor yang membentuk N adalah bilangan PRIMA! Daripada bruteforce dengan cara biasa, menggunakan sesuatu seperti [_Fermat primality test_](https://en.wikipedia.org/wiki/Fermat_primality_test) atau [_Miller-Rabin primality test_](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test) sangat cepat. Menurut [StackOverflow](https://math.stackexchange.com/questions/379592/computing-the-running-time-of-the-fermat-primality-test), kompleksitas kedua algoritma tersebut adalah O(k * log n * log n * log n), jelas sangat cepat. Juga, probabilitas mendapatkan angka Carmichael adalah sangat kecil, sekitar 0.00000017, jadi angka yang mungkin prima yang bersisa dari 10^7 seharusnya sangat sedikit.
+To solve this problem, a little insight is needed, which is that the factors that make up N are PRIME! And unlike pure bruteforcing, using something like [Fermat primality test](https://en.wikipedia.org/wiki/Fermat_primality_test) or [Miller-Rabin primality test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test) is super fast. According to [StackOverflow](https://math.stackexchange.com/questions/379592/computing-the-running-time-of-the-fermat-primality-test), the complexity of the fermat primality test is O(k * log n * log n * log n), which is really fast. Also, the probabilty of getting a Carmichael number is really low, around 0.00000017, so the number of possible primes that remain out of 10^7 numbers should be pretty low.
 
-Awalnya saya hanya ingat ada 2 bilangan prima di dalam nums.txt, tapi karena satu dan lain hal akhirnya saya menaruh sekitar 1300 prima di dalamnya. Seharusnya tidak begitu pengaruh, sebab bruteforce 10^3\*10^3 sangat memungkinkan.
+Originally I wanted to make this problem with only 2 primes inside nums.txt, but because of a small change I ended up putting around 1300 primes inside nums.txt, it doesn't really matter to be honest, since bruteforcing 10^3\*10^3 is very much possible.
 
-Berikut script yang saya gunakan untuk menyelesaikan soal ini
+Here's the script I used to solve this problem
 
 ```python
 
@@ -47,15 +47,15 @@ print 'Step 1: regular division testing'
 divisors = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47]
 
 with open('nums.txt', 'r') as f, open('newnums.txt', 'w') as l:
-   nums = f.readlines()
-   for num in nums:
-      num = int(num)
-      hehe = True
-      for i in divisors:
-         if num % i == 0:
-            hehe = False
-      if hehe:
-         l.write(str(num) + '\n')
+	nums = f.readlines()
+	for num in nums:
+		num = int(num)
+		hehe = True
+		for i in divisors:
+			if num % i == 0:
+				hehe = False
+		if hehe:
+			l.write(str(num) + '\n')
 
 print 'Step 1 Complete!'
 print
@@ -64,21 +64,21 @@ print 'Step 2: Fermat testing...'
 
 nums = []
 with open('newnums.txt', 'r') as f:
-   nums = f.readlines()
+	nums = f.readlines()
 
 def fermat_test(n):
-   # Implementation uses the Fermat Primality Test
-   n = int(n)
-   for i in range(40):
-      a = random.randint(1, n-1)
-      if pow(a, n-1, n) != 1:
-         return False
-   return True
+	# Implementation uses the Fermat Primality Test
+	n = int(n)
+	for i in range(40):
+		a = random.randint(1, n-1)
+		if pow(a, n-1, n) != 1:
+			return False
+	return True
 
 with open('likely_primes.txt', 'w') as f:
-   for i in nums:
-      if fermat_test(i):
-         f.write(str(i))
+	for i in nums:
+		if fermat_test(i):
+			f.write(str(i))
 
 print 'Step 2 Complete!!!'
 
@@ -91,59 +91,59 @@ print 'Solving RSA...'
 # solve rsa
 nums = []
 with open('likely_primes.txt', 'r') as f:
-   nums = f.readlines()
+	nums = f.readlines()
 
 def solve_rsa(p, q, e, c):
-   
-   def egcd(a, b):
-      if a == 0:
-         return (b, 0, 1)
-      else:
-         g, y, x = egcd(b % a, a)
-         return (g, x - (b // a) * y, y)
+	
+	def egcd(a, b):
+		if a == 0:
+			return (b, 0, 1)
+		else:
+			g, y, x = egcd(b % a, a)
+			return (g, x - (b // a) * y, y)
 
-   def modinv(a, m):
-      g, x, y = egcd(a, m)
-      if g != 1:
-         return 1
-      else:
-         return x % m
+	def modinv(a, m):
+		g, x, y = egcd(a, m)
+		if g != 1:
+			return 1
+		else:
+			return x % m
 
-   p = int(p)
-   q = int(q)
-   n = p*q
-   x = (p-1)*(q-1)
-   d = modinv(e, x)
+	p = int(p)
+	q = int(q)
+	n = p*q
+	x = (p-1)*(q-1)
+	d = modinv(e, x)
 
-   a = pow(c, d, n)
-   a = hex(a)[2:-1]
-   try:
-      msg = a.decode('hex')
-   except:
-      msg = ''
-   return msg
+	a = pow(c, d, n)
+	a = hex(a)[2:-1]
+	try:
+		msg = a.decode('hex')
+	except:
+		msg = ''
+	return msg
 
 with open('rsa.txt', 'r') as f:
-   e = int(f.readline()[3:])
-   c = int(f.readline()[3:])
+	e = int(f.readline()[3:])
+	c = int(f.readline()[3:])
 
 counter = 1
 for i in range(len(nums)):
-   print 'Testing pair {}'.format(counter)
-   counter += 1
-   for j in range(i+1, len(nums)):
-      if nums[i] == '\n' or nums[j] == '\n':
-         continue
-      else:
-         msg = solve_rsa(nums[i], nums[j], e, c)
-         if 'COMPFEST11' in msg:
-            print '='*20
-            print 'Flag:', msg
-            print '='*20
-            sys.exit(0)
+	print 'Testing pair {}'.format(counter)
+	counter += 1
+	for j in range(i+1, len(nums)):
+		if nums[i] == '\n' or nums[j] == '\n':
+			continue
+		else:
+			msg = solve_rsa(nums[i], nums[j], e, c)
+			if 'COMPFEST11' in msg:
+				print '='*20
+				print 'Flag:', msg
+				print '='*20
+				sys.exit(0)
 ```
 
-Menjalankan script di atas seharusnya mengeluarkan flag
+Running the above script should give the flag
 
 Flag: COMPFEST11{z4fIRr_i5_aW3s0me_ya}
 
@@ -152,111 +152,111 @@ Flag: COMPFEST11{z4fIRr_i5_aW3s0me_ya}
 <br>
 
 ## 2. red pill or blue pill (Reversing)
-Semua file yang saya gunakan untuk menyelesaikan soal ini terdapat [disini](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
+All files needed to solve this problem can be found [here](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
 
-Aku sebenarnya paling bangga dengan soal ini, sebab ini pertama kali saya ngoding pure dengan nasm :)
+I'm actually most proud of this problem, it was the first time I've coded in pure nasm :).
 
-Ketika menjalankan file tersebut, permain tidak diberi _prompt_ apapun :P, tapi mencoba untuk input sesuatu akan mengeluarkan string pendek. Biasanya dari sekarang orang mulai _disassembly_, tapi karena buruknya saya ngoding, melakukan itu sulit :P. Tidak ghidra maupun IDA mengeluarkan dekompilasi yang cantik, jadi _disassembly_ merupakan caranya, hanya gdb!
+When running the binary, players are givin no prompt :P, but trying to input something will output a short string. By now people start disassembling, but because of how bad I wrote the code, it's pretty hard :P. Neither ghidra nor IDA output pretty decompilation, so dissasembly is the way to go, pure gdb!
 
 Possible output:
 
 ![Error](/assets/images/red-pill-or-blue-pill-1.png)
 
-_disassembly_:
+disassembly:
 
 ```
-   0x8049000:  xor    eax,eax
-   0x8049002:  xor    ebx,ebx
-   0x8049004:  xor    ecx,ecx
-   0x8049006:  xor    edx,edx
-   0x8049008:  mov    eax,0x3
-   0x804900d:  mov    ebx,0x0
-   0x8049012:  mov    ecx,0x804a000
-   0x8049017:  mov    edx,0x100
-   0x804901c:  int    0x80
-   0x804901e:  mov    ebp,esp
-   0x8049020:  mov    DWORD PTR [ebp+0x4],0xffffffff
-   0x8049027:  add    DWORD PTR [ebp+0x4],0x1
-   0x804902b:  mov    eax,DWORD PTR [ebp+0x4]
-   0x804902e:  mov    eax,DWORD PTR [eax+0x804a000]
-   0x8049034:  test   eax,eax
-   0x8049036:  jne    0x8049027
-   0x8049038:  mov    eax,DWORD PTR [ebp+0x4]
-   0x804903b:  cmp    eax,0x1d
-   0x804903e:  je     0x8049045
-   0x8049040:  jmp    0x804910e
-   0x8049045:  mov    DWORD PTR [ebp+0x4],0xffffffff
-   0x804904c:  mov    DWORD PTR [ebp+0x10],0x7f
-   0x8049053:  jmp    0x80490ad
-   0x8049055:  mov    DWORD PTR [ebp+0x8],0xffffffff
-   0x804905c:  mov    DWORD PTR [ebp+0xc],0x0
-   0x8049063:  mov    ebx,DWORD PTR [ebp+0x4]
-   0x8049066:  jmp    0x8049097
-   0x8049068:  xor    eax,eax
-   0x804906a:  mov    al,BYTE PTR [ebp+0x8]
-   0x804906d:  mov    ecx,0x1d
-   0x8049072:  imul   ecx
-   0x8049074:  mov    ecx,eax
-   0x8049076:  mov    dl,BYTE PTR [ebx+ecx*1+0x804a100]
-   0x804907d:  xor    ecx,ecx
-   0x804907f:  mov    ecx,DWORD PTR [ebp+0x8]
-   0x8049082:  mov    al,BYTE PTR [ecx+0x804a000]
-   0x8049088:  imul   dl
-   0x804908a:  add    DWORD PTR [ebp+0xc],eax
-   0x804908d:  mov    eax,DWORD PTR [ebp+0xc]
-   0x8049090:  cdq    
-   0x8049091:  idiv   DWORD PTR [ebp+0x10]
-   0x8049094:  mov    DWORD PTR [ebp+0xc],edx
-   0x8049097:  add    DWORD PTR [ebp+0x8],0x1
-   0x804909b:  mov    eax,DWORD PTR [ebp+0x8]
-   0x804909e:  cmp    eax,0x1d
-   0x80490a1:  jl     0x8049068
-   0x80490a3:  mov    eax,DWORD PTR [ebp+0xc]
-   0x80490a6:  mov    ebx,DWORD PTR [ebp+0x4]
-   0x80490a9:  mov    DWORD PTR [ebp+ebx*1+0x14],eax
-   0x80490ad:  add    DWORD PTR [ebp+0x4],0x1
-   0x80490b1:  mov    eax,DWORD PTR [ebp+0x4]
-   0x80490b4:  cmp    eax,0x1d
-   0x80490b7:  jl     0x8049055
-   0x80490b9:  jmp    0x80490eb
-   0x80490bb:  mov    eax,0x4
-   0x80490c0:  mov    ebx,0x1
-   0x80490c5:  mov    ecx,0x804a449
-   0x80490ca:  mov    edx,0xa
-   0x80490cf:  int    0x80
-   0x80490d1:  jmp    0x8049126
-   0x80490d3:  mov    eax,0x4
-   0x80490d8:  mov    ebx,0x1
-   0x80490dd:  mov    ecx,0x804a453
-   0x80490e2:  mov    edx,0xe
-   0x80490e7:  int    0x80
-   0x80490e9:  jmp    0x8049126
-   0x80490eb:  mov    DWORD PTR [ebp+0x4],0xffffffff
-   0x80490f2:  jmp    0x8049100
-   0x80490f4:  mov    al,BYTE PTR [ecx+0x804a478]
-   0x80490fa:  cmp    al,BYTE PTR [ebp+ecx*1+0x14]
-   0x80490fe:  jne    0x80490d3
-   0x8049100:  add    DWORD PTR [ebp+0x4],0x1
-   0x8049104:  mov    ecx,DWORD PTR [ebp+0x4]
-   0x8049107:  cmp    ecx,0x1d
-   0x804910a:  jl     0x80490f4
-   0x804910c:  jmp    0x80490bb
-   0x804910e:  mov    eax,0x4
-   0x8049113:  mov    ebx,0x1
-   0x8049118:  mov    ecx,0x804a461
-   0x804911d:  mov    edx,0x17
-   0x8049122:  int    0x80
-   0x8049124:  jmp    0x8049126
-   0x8049126:  mov    eax,0x1
-   0x804912b:  int    0x80
+   0x8049000:	xor    eax,eax
+   0x8049002:	xor    ebx,ebx
+   0x8049004:	xor    ecx,ecx
+   0x8049006:	xor    edx,edx
+   0x8049008:	mov    eax,0x3
+   0x804900d:	mov    ebx,0x0
+   0x8049012:	mov    ecx,0x804a000
+   0x8049017:	mov    edx,0x100
+   0x804901c:	int    0x80
+   0x804901e:	mov    ebp,esp
+   0x8049020:	mov    DWORD PTR [ebp+0x4],0xffffffff
+   0x8049027:	add    DWORD PTR [ebp+0x4],0x1
+   0x804902b:	mov    eax,DWORD PTR [ebp+0x4]
+   0x804902e:	mov    eax,DWORD PTR [eax+0x804a000]
+   0x8049034:	test   eax,eax
+   0x8049036:	jne    0x8049027
+   0x8049038:	mov    eax,DWORD PTR [ebp+0x4]
+   0x804903b:	cmp    eax,0x1d
+   0x804903e:	je     0x8049045
+   0x8049040:	jmp    0x804910e
+   0x8049045:	mov    DWORD PTR [ebp+0x4],0xffffffff
+   0x804904c:	mov    DWORD PTR [ebp+0x10],0x7f
+   0x8049053:	jmp    0x80490ad
+   0x8049055:	mov    DWORD PTR [ebp+0x8],0xffffffff
+   0x804905c:	mov    DWORD PTR [ebp+0xc],0x0
+   0x8049063:	mov    ebx,DWORD PTR [ebp+0x4]
+   0x8049066:	jmp    0x8049097
+   0x8049068:	xor    eax,eax
+   0x804906a:	mov    al,BYTE PTR [ebp+0x8]
+   0x804906d:	mov    ecx,0x1d
+   0x8049072:	imul   ecx
+   0x8049074:	mov    ecx,eax
+   0x8049076:	mov    dl,BYTE PTR [ebx+ecx*1+0x804a100]
+   0x804907d:	xor    ecx,ecx
+   0x804907f:	mov    ecx,DWORD PTR [ebp+0x8]
+   0x8049082:	mov    al,BYTE PTR [ecx+0x804a000]
+   0x8049088:	imul   dl
+   0x804908a:	add    DWORD PTR [ebp+0xc],eax
+   0x804908d:	mov    eax,DWORD PTR [ebp+0xc]
+   0x8049090:	cdq    
+   0x8049091:	idiv   DWORD PTR [ebp+0x10]
+   0x8049094:	mov    DWORD PTR [ebp+0xc],edx
+   0x8049097:	add    DWORD PTR [ebp+0x8],0x1
+   0x804909b:	mov    eax,DWORD PTR [ebp+0x8]
+   0x804909e:	cmp    eax,0x1d
+   0x80490a1:	jl     0x8049068
+   0x80490a3:	mov    eax,DWORD PTR [ebp+0xc]
+   0x80490a6:	mov    ebx,DWORD PTR [ebp+0x4]
+   0x80490a9:	mov    DWORD PTR [ebp+ebx*1+0x14],eax
+   0x80490ad:	add    DWORD PTR [ebp+0x4],0x1
+   0x80490b1:	mov    eax,DWORD PTR [ebp+0x4]
+   0x80490b4:	cmp    eax,0x1d
+   0x80490b7:	jl     0x8049055
+   0x80490b9:	jmp    0x80490eb
+   0x80490bb:	mov    eax,0x4
+   0x80490c0:	mov    ebx,0x1
+   0x80490c5:	mov    ecx,0x804a449
+   0x80490ca:	mov    edx,0xa
+   0x80490cf:	int    0x80
+   0x80490d1:	jmp    0x8049126
+   0x80490d3:	mov    eax,0x4
+   0x80490d8:	mov    ebx,0x1
+   0x80490dd:	mov    ecx,0x804a453
+   0x80490e2:	mov    edx,0xe
+   0x80490e7:	int    0x80
+   0x80490e9:	jmp    0x8049126
+   0x80490eb:	mov    DWORD PTR [ebp+0x4],0xffffffff
+   0x80490f2:	jmp    0x8049100
+   0x80490f4:	mov    al,BYTE PTR [ecx+0x804a478]
+   0x80490fa:	cmp    al,BYTE PTR [ebp+ecx*1+0x14]
+   0x80490fe:	jne    0x80490d3
+   0x8049100:	add    DWORD PTR [ebp+0x4],0x1
+   0x8049104:	mov    ecx,DWORD PTR [ebp+0x4]
+   0x8049107:	cmp    ecx,0x1d
+   0x804910a:	jl     0x80490f4
+   0x804910c:	jmp    0x80490bb
+   0x804910e:	mov    eax,0x4
+   0x8049113:	mov    ebx,0x1
+   0x8049118:	mov    ecx,0x804a461
+   0x804911d:	mov    edx,0x17
+   0x8049122:	int    0x80
+   0x8049124:	jmp    0x8049126
+   0x8049126:	mov    eax,0x1
+   0x804912b:	int    0x80
 ```
 
-Jujur sebenarnya ini tidak terlihat terlalu rumit, hanya 84 baris assembly jelek yang perlu di reverse, aneh kenapa cuma 3 tim yang berhasil solve.
+To be honest it doesn't look that hard, only 84 lines of pure ugly assembly, really weird how only 3 teams solved it.
 
 ### The Syscalls
-Jika anda sudah tau sedikit tentang cara assembly bekerja, anda pasti tau bahwa hal seperti I/O memerlukan [syscall](https://en.wikipedia.org/wiki/System_call). Dikarenakan ini binary 32-bit, syscall dipanggil dengan instruksi `int 0x80`. Ok ayo kita lihat beberapa instruksi.
+If you know anything about how assembly works, you would know doing some stuff like I/O requires [syscalls](https://en.wikipedia.org/wiki/System_call). Since this is a 32-bit binary, syscalls are invoked using the `int 0x80` instruction. Ok lets break down a few instructions then
 
-Ini adalah setup dan membaca input. Input ditempatkan didalam suatu buffer di 0x804a000
+this is setup dan reading input. Input is placed at the buffer 0x804a000
 
 ```
    0x8049000:  xor    eax,eax
@@ -270,7 +270,7 @@ Ini adalah setup dan membaca input. Input ditempatkan didalam suatu buffer di 0x
    0x804901c:  int    0x80
 ```
 
-Ini mencetak apa yang ada di 0x804a449
+this prints whatever is at 0x804a449
 
 ```
    0x80490bb:  mov    eax,0x4
@@ -280,7 +280,7 @@ Ini mencetak apa yang ada di 0x804a449
    0x80490cf:  int    0x80
 ```
 
-Ini mencetak apa yang ada di 0x804a453
+this prints whatever is at 0x804a453
 
 ```
    0x80490d3:  mov    eax,0x4
@@ -290,7 +290,7 @@ Ini mencetak apa yang ada di 0x804a453
    0x80490e7:  int    0x80
 ```
 
-Ini mencetak apa yang ada di 0x804a461
+this prints whatever is at 0x804a461
 
 ```
    0x804910e:  mov    eax,0x4
@@ -300,17 +300,17 @@ Ini mencetak apa yang ada di 0x804a461
    0x8049122:  int    0x80
 ```
 
-Dan ini exit dari program
+and this exits
 
 ```
    0x8049126:  mov    eax,0x1
    0x804912b:  int    0x80
 ```
 
-Simpel kan? Nah sisanya tinggal kita reverse.
+Simple stuff right? Well whatever is left is what we need to reverse
 
-### Ayo mulai memecahkan
-Ok mari kita liat logika utamanya
+### Lets start cracking
+Ok lets look at the main logic
 
 ```
    0x804901e:  mov    ebp,esp
@@ -359,24 +359,24 @@ Ok mari kita liat logika utamanya
    0x80490b7:  jl     0x8049055
 ```
 
-Anda mungkin memerlukan sedikit pengalaman dengan assembly, tapi semua yang dieksekusi kecuali yang diantara 0x8049068 dan 0x8049068 merupakan loop, lebih spesifik nested loop yang memiliki batas -1 dan 29 (ekslusif). Jadi jika kita mencoba untuk menulisnya sebagai python [_pseudocode_](https://en.wikipedia.org/wiki/Pseudocode), kita mendapatkan:
+You may need a little experience with assembly, but everything excluding 0x8049068 to 0x8049094 is a loop, more specifically a nested loop that goes from -1 to 29 (exclusive). So if we try to write it as python [pseudocode](https://en.wikipedia.org/wiki/Pseudocode), we get:
 
 ```python
 for i in range(0, 29):
    for j in range(0, 29):
-      <lakukan sesuatu>
+      <do something>
 ```
 
-Nah saya bukan compiler, jadi loop yang saya hasilkan tidak semantap gcc. Tapi OK lah ya.
+Now im not a compiler, so the loops didnt come out as amazing as gcc does it. But hey its okay I guess.
 
-### Apa it \<lakukan sesuatu\>
-Jadi sekarang kita tahu bahwa ini adalah nested loop yang berjalan dari -1 sampai 29 (ekslusif), tapi apa yang terjadi di dalam loopnya? Nah mari kita melihat instruksi dibawah ini:
+### What is \<do something\>
+So we know its a nested loop that runs from -1 to 29 (exclusive), but what happens inside the loops? Well lets take a look at this instruction:
 
 ```
-0x8049076:  mov    dl,BYTE PTR [ebx+ecx*1+0x804a100]
+   0x8049076:  mov    dl,BYTE PTR [ebx+ecx*1+0x804a100]
 ```
 
-Kita kita nyatakan bahwa ebx dan ecx berdua bernilai angka yang kecil, maka instruksi ini hanya mereferensikan suatu nilai di 0x804a100 dan menyimpannya di dl. Dengan pengalaman sedikit, terlihat bahwa notasi seperti ini merupakan indikasi mengakses matriks. Jadi nested loop kita mengakses sebuah matrix, sekarang _pseudocode_ kita menjadi:
+If we say ebx and ecx both have small numbers, this is basically referencing some value in 0x804a100 and storing it in dl. With some experience, notation like this is usually an indication of matrix accessing. So the nested loop accesses a matrix, now our pseudocode becomes:
 
 ```python
 for i in range(0, 29):
@@ -384,7 +384,7 @@ for i in range(0, 29):
       matrix[i*29 + j]
 ```
 
-Sekarang ada 2 instruksi lagi yang perlu dilihat, yaitu:
+Now there are 2 more instructions to look at, those are:
 
 ```
    0x8049088:  imul   dl
@@ -393,9 +393,10 @@ Sekarang ada 2 instruksi lagi yang perlu dilihat, yaitu:
    .
    0x8049091:  idiv   DWORD PTR [ebp+0x10]
 ```
-`imul` ada perkalian, dan `idiv` adalah pembagian, tapi dengan apa? Menurut [dokumentasi nasm](http://home.myfairpoint.net/fbkotler/nasmdocr.html), `imul` mengalikan nilai yang diberikan dengan nilai yang berada di al/dx:ax/edx:eax. Karena kita sekarang mengalikan dengan dl, maka nilai al adalah nilai yang dikalikan. Nilai tersebut disimpan di al. `idiv` hampir sama, nilainya dibagi dengan al/dx:ax/edx:eax, dan hasil baginya disimpan di al/ax/eax serta sisa baginya disimpan di ah/dx/edx. Karena kita membagi dengan sebuah DWORD, maka hasilnya disimpan di eax dan sisa baginya disimpan di edx.
 
-Nah kita tau dari instruksi sebelumnya bahwa dl merupakan nilai dari matrix, tapi apa nilai dari al? Kita bisa menemukan itu disini:
+`imul` is multiply, and `idiv` is divide, but with what? According to the [nasm docs](http://home.myfairpoint.net/fbkotler/nasmdocr.html), `imul` multiplys the value givin with the value in al/dx:ax/edx:eax and stores the value in al/dx:ax/edx:eax. Since we are multiplying with dl, the value is multiplied with al and stored in al. `idiv` is almost the same, the value is divided with al/dx:ax/edx:eax, and the result is stored in al/ax/eax and the remainder is stored in ah/dx/edx. Since were are dividing with a DWORD, the result is in eax and the remainder is in edx.
+
+We know from the previous instruction that dl is the value in the matrix, but what about the value of al? We can find that here:
 
 ```
    0x804907d:  xor    ecx,ecx
@@ -403,16 +404,16 @@ Nah kita tau dari instruksi sebelumnya bahwa dl merupakan nilai dari matrix, tap
    0x8049082:  mov    al,BYTE PTR [ecx+0x804a000]
 ```
 
-Oh rupanya al merupakan nilai yang kita input. Kita juga tapi dari salah satu instruksi bahwa ketika sedang menyiapkan loop, nilai yang terdapat di [ebp+0x10] adalah 0x7f, jadi hasil perkalian dibagi dengan 0x7f, mantap.
+Oh. al is the value we inputted. We also know from one of the instructions when setting up the loop that the value in [ebp+0x10] is 0x7f, so the result of the multiplication is divided by 0x7f, neat.
 
-Tapi kenapa sih kita membagi? Mari liat instruksi setelahnya:
+So why did we do a divide? Let's look into the next instructions:
 
 ```
    0x8049091:  idiv   DWORD PTR [ebp+0x10]
    0x8049094:  mov    DWORD PTR [ebp+0xc],edx
-```
+``` 
 
-Oh jadi nilai edx yang diambil, dan itu merupakan hasil baginya. Nilai tersebut terus disimpan dengan instruksi berikut:
+Oh so the value of edx is the one thats used, which is the remainder of the division. The value is then stored with these instructions:
 
 ```
    0x80490a3:  mov    eax,DWORD PTR [ebp+0xc]
@@ -420,7 +421,7 @@ Oh jadi nilai edx yang diambil, dan itu merupakan hasil baginya. Nilai tersebut 
    0x80490a9:  mov    DWORD PTR [ebp+ebx*1+0x14],eax
 ```
 
-Maka _pseudocode_ kita menjadi berikut:
+So now out pseudocode becomes this:
 
 ```python
 for i in range(0, 29):
@@ -428,8 +429,8 @@ for i in range(0, 29):
       result[i] = (matrix[i*29 + j] * password[i]) % 0x7f
 ```
 
-### Terus kenapa
-Ya jadi kita tau bahwa ada sebuah perkalian matrix dan hasilnya disimpan, tapi untuk apa itu? Nah ada satu bagian lagi yang belum dibahas, yaitu bagian ini:
+### So what now
+Well we now know that there was some matrix multiplication that happened and the value was stored, but what do with do with that? Well theres one more piece of logic that we havent seen yet, which is this block of code:
 
 ```
    0x80490eb:  mov    DWORD PTR [ebp+0x4],0xffffffff
@@ -444,20 +445,20 @@ Ya jadi kita tau bahwa ada sebuah perkalian matrix dan hasilnya disimpan, tapi u
    0x804910c:  jmp    0x80490bb
 ```
 
-Sederhananya ini membandingkan hasil perkalian matrix dengan data yang sudah ada dalam file tersebut, jika sama bagus jika beda ngak. Jika semua nilai sama maka yang telah kita input merupakan password yang benar. Selesai :)
+This basically compares result with some data already in binary, if it is equal good if not bad. If all values are equal then what was inputted is the correct password. Done :)
 
 Flag: COMPFEST11{ya_Its_wE1rD_z3_do3S_Not_w0Rk}
 
-### Tambahan:
-*  z3 tidak dapat menyelesaikan ini, dia membutuhkan waktu yang sangat lama! Gunakan sageMath!
-*  Inputnya mesti tepat 29 byte, diakhiri null, anda tidak dapat menginputnya secara langsung karena akan ditambah karakter '\n'!
+### Extra Notes:
+* z3 cannot solve this, it takes forever! Use sageMath!
+* the input must be perfectly 29 bytes long, null terminated, you cant input it directly because a newline is appended! :D
 
 <br>
 <br>
 <br>
 
-## 3. helloabcdefghijklmnop
-Soal ini adalah soal terakhir dari saya untuk kualifikasi, soal ini terdiri dari 2 file yang di- _compile_ dengan go-lang yang bernama "client" dan "server". File "server" merupakan file yang sedang dijalankan di service, sementara file "client" dijalankan oleh pemain dan akan otomatis bersambung dengan service. Client merupakan system chat palsu dan sepertinya "down", tapi server yang menjalankannya masih jalan. Untuk tes jika servernya tetap berjalan, client dapat mengirim sebuah string, dan jika string yang sama dikembalikan oleh server, maka servernya tetap jalan.
+## 3. helloabcdefghijklmnop (Binary Exploitation)
+This was my final qualifier problem, it consisted of 2 go-lang compiled binaries named "client" and "server". The binary "server" was the one running in the service, while running the binary "client" on your machine would connect with the service with a set port. Client is a knockoff messaging system which is apparently "down", but the server is still up. In order to test if the server is still up, the client can send a string, and if the same string is returned by the server, then the server is still up.
 
 Example:
 
@@ -465,17 +466,17 @@ Example:
 
 ![Error](/assets/images/helloabcdefghijklmnop-2.png)
 
-### Bug
-Jadi apa bugnya? Mungkin ini dapat membantu (sumber [xkcd](https://xkcd.com/1354/)):
+### The bug
+So what's the underlying bug? Maybe this will help (source [xkcd](https://xkcd.com/1354/)):
 
 ![Error](/assets/images/helloabcdefghijklmnop-3.png)
 
-Ya, ini merupakan soal heartbleed. Aku tidak terlalu bangga dengannya, karena aku berpikir kalo source dikasih akan terlalu mudah, dan jika tidak diberi akan sulit. Pada akhirnya aku tidak memberikannya, tapi masalahnya soalnya menjadi sangat berat untuk direverse karena mesti mengerti cara go-lang meng _compile_, dan juga cara go-lang menyimpan varibalenya.
+Yes, I made a heartbleed problem. I'm not very proud of it, because I thought giving the source code would be too easy, and not giving it would be hard. I ended up not giving it, but the problem became really reverse heavy because you had to understand how go-lang compiles its binary, aswell as how go-lang saves its variables.
 
-Aku akan menjelaskan dikit untuk membantu.
+I'll explain a little just to help.
 
 ### Go-lang
-Go-lang menyimpan hampir semua variablenya di dalam stack, termasuk parameter fungsi dan nilai kembali fungsi. Ini merupakan salah satu alasan _decompiler_ seperti Ghidra dan IDA kesusahan dan tidak begitu enak dilihat ketika dekompilasi, melihat _disassembly_ juga susah sendirinya. Cara aku harap tim dapat solve soalnya adalah dengan melihat _disassemblynya_, tapi aku salah. Mari kita liat beberapa bagian dari fungsi utama di file "client". Tidak semua, hanya yang penting
+Go-lang saves almost allocates all its variables on the stack, including function arguments and return values. This is the part of the reason why decompilers become confused and aren't really pretty in decompilation, and also seeing disassembly is a pain in and of itself. But the way I hoped teams would solve it is by looking at the disassembly, I was wrong. Let's look at some disassembly of the main function in the "client" binary. Not all of it, just the important parts
 
 ```
   4dcd11:  48 8d 0d 48 d2 05 00    lea    0x5d248(%rip),%rcx        # 539f60 <go.itab.*os.File,io.Reader>
@@ -555,7 +556,7 @@ Go-lang menyimpan hampir semua variablenya di dalam stack, termasuk parameter fu
   4dce65:   e8 66 1c f3 ff          callq  40ead0 <runtime.convT2Estring>
 ```
 
-Aduh apa ituuuu, sebagian besar tidak penting, kita liat aja fungsi yang digunakan.
+Oh god what is this, most of it isn't important, just look at the functions used.
 
 ```
   4dcd11:  48 8d 0d 48 d2 05 00    lea    0x5d248(%rip),%rcx        # 539f60 <go.itab.*os.File,io.Reader>
@@ -582,31 +583,31 @@ Aduh apa ituuuu, sebagian besar tidak penting, kita liat aja fungsi yang digunak
   4dce65:   e8 66 1c f3 ff          callq  40ead0 <runtime.convT2Estring>
 ```
 
-Ok, mungkin ini memerlukan sedikit pengalaman dan waktu sebentar googling, tapi fungsi ini sederhananya melakukan ini:
-*  membaca input
-*  string menjadi array of "runes"
-*  ambil panjang array tersebut
-*  panjangnya diubah menjadi "rune"
-*  tambahkan panjangnya ke array of "runes" tersebut
-*  array tersebut diubah menjadi string kembali
+Okay it might take a little experience and a little while to google, but these functions basically do this:
+*  read input
+*  string becomes a array of "runes"
+*  get length of it
+*  length becomes a "rune"
+*  add length to array of "runes"
+*  array of runes becomes string again
 
-Ok seharusnya sini sudah jelas, ubah aja panjangnya menjadi angka yang besar dan data penting seharusnya dikirim kembali, data penting tersebut adalah flag.
+Okay it should be clear what you have to do, just change the length to a large number and important data will be sent back, important data being the flag.
 
 Flag: COMPFEST11{ya_heartbleed_was_cool_and_all}
 
-### Feedback ke diri sendiri
-Lain kali aku buat programnya lebih susah, tapi source code diberi, sepertinya itu opsi lebih baik daripada program yang mudah tapi tanpa source. Tidak ada tim yang berhasil menyelesaikan soal ini .-.
+### Feedback to myself
+Next time i'll make the logic harder, but give the source, it seems like the better option instead of easy logic but no source. No team solved this problem .-.
 
 <br>
 <br>
 <br>
 
 ## 4. Fruity Goodness (Binary Exploitation)
-Semua file yang saya gunakan untuk menyelesaikan soal ini terdapat [disini](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
+All files needed to solve this problem can be found [here](https://drive.google.com/open?id=1pptFStC7o6BO7Xie8YucUzQ1WH2yY55I)
 
-Fruity goodness adalah soal Binary Exploitation yang didasari heap, dengan sebagian besar inspirasinya didapatkan dari Exploit [House of Orange](https://1ce0ear.github.io/2017/11/26/study-house-of-orange/). Aku sebenarnya ingin buat soal yang mirip permainan [Pokemon](https://www.pokemon.com/us/), dan sepertinya berhasil(?)
+Fruity goodness is a heap-based Binary Exploitation problem that took most its inspiration from the [House of Orange](https://1ce0ear.github.io/2017/11/26/study-house-of-orange/) Exploit. I wanted to make this problem reflect a [Pokemon](https://www.pokemon.com/us/) game, I kinda succeded I guess (?)
 
-Mari kita liat source codenya (Diberi karena format final Compfest adalah Attack-Defence):
+Lets look at the source code (it was given since compfest finals were in the Attack-Defence format):
 
 ```c
    #include<stdio.h>
@@ -890,14 +891,14 @@ Mari kita liat source codenya (Diberi karena format final Compfest adalah Attack
    }
 ```
 
-Terlihat banyak, tapi sebenarnya ini soal make/edit/see sederhana. Aku akan biarkan anda cara kerjanya, tapi ini rangkuman dikit:
+Seems like alot, but its a basic make/edit/see kind of problem. I'll leave it up to you to understand how it works, here's a summary though
 
-*  make_fruit -> Anda dapat membuat buah baru dimana buah baru memiliki atribut coolness, tastiness, number, name, pointer ke buah berikut, dan level
-*  train_fruit -> ini merupakan mekanisme edit, dimana anda dapat melatih buah anda dan setelah beberapa waktu (random) dia bisa naik level dan evolusi. Ketika evolusi anda dapat mengubah namanya.
-*  list_fruits -> tampilkan semua buah yang ada sekarang (sebuah linked list yang mengiterasi hingga null)
+* make_fruit -> You can make a new fruit which has a coolness, tastiness, number, name, pointer to next fruit and level
+* train_fruit -> this is the edit mechanism, basically you can train your fruit and after a while (random) it gains a level and evolves. When it evolves you can edit its name
+* list_fruits -> list all the fruits right now (a linked list that iterates until null)
 
-### Bug
-Bugnya dapat ditemukan ditemukan dalam mekanisme evolusi:
+### The bug
+The bug can be found in the evolve mechanism:
 
 ```c
 fruit_to_train->coolness += rand() % 10 + 1;
@@ -945,20 +946,21 @@ fruit_to_train->coolness += rand() % 10 + 1;
    }
 ```
 
-Dapat dilihat bahwa setelah beberapa waktu, coolness dan tastiness berdua akan lebih dari 50, setelah itu anda dapat mengubah nama dari buah yang sedang dilatih. Akan tetapi, panjang dari nama yang baru bisa jadi lebih besar dari panjang nama sebelumnya. Ini mengakibatkan heap overflow.
+As you can see, after a random amount of time, both coolness and tastiness will be greater than 50, and then you can change the name of the fruit in question. However, the new length of the name can be greater than the previous length that was already allocated, this leads to a heap overflow.
 
-### Mendapatkan heap leak
-Setiap kali kita allokasikan buah yang baru, namanya merupakan pointer ke sebuah array karakter, dimana array tersebut terletak didalam heap. Dengan mengalokasikan 2 buah dan membuat nama baru untuk buah pertama sehingga bertepatan dengan pointer nama buah kedua, kita bisa mendapatkan sebuah heap leak.
+### Getting a heap leak
+Every time we make a new fruit, the name of the fruit is a pointer to an array of chars, where the array is located in the heap. By making 2 fruits and overwriting the first one's name in order to connect to the next fruits name pointer, we can get a heap leak.
 
-### Mendapatkan libc leak
-Dengan mengubah ukuran dari top chunk menjadi ukuran tertentu, kita dapat memanggil fungsi free(). Gimana caranya? Ketika ukuran dari top chunk lebih kecil dari nilai yang ingin kita allokasikan, top chunk tersebut akan difree dan mmap akan dipanggil, sehingga arena baru akan dibuat. Jika ukuran dari top chunk pada saat itu didalam ukuran small/large chunk, chunk tersebut akan difree dan dipindahkan ke unsorted bin. Nah untuk chunk yang difree dan ditempatkan ke unsorted bin, pointer fd dan bk berdua akan menunjuk ke main arena, yang terdapat di libc.
+### Getting a libc leak
+By changing the size of the top chunk to a certain value, we can invoke a free() call. How? When the size of the top chunk is smaller than the value we want to allocate, the top chunk will be freed and mmap will be called, mapping a new arena. If the size of the top chunk during this time is of a small/large bin, the chunk will be freed and moved to the unsorted bin. Now, for chunks that are freed and put into the unsorted bin, both its fd and bk pointers will point to main arena, which is in libc.
 
-Dengan menkombinasikan kedua teknik diatas, kita bisa mendapatkan kedua leak hanya dengan 2 buah and 3 evolusi.
+By combining both techniques above, we can get both in just 2 fruits and 3 evolves.
 
-### Terus ngapain
-Nah mengubah pointer nama tidak hanya bisa menjadi baca semaunya, tapi bisa juga digunakan untuk menulis kemana pun. Dengan mengubah \_\_malloc\_hook maupun \_\_free\_hook, dengan mudah kita bisa mendapatkan shell.
+### What next
+Well not only can the overwrite of the name pointer be an arbitrary read, but it can also be an arbitrary write. With the libc leak overwriting \_\_malloc\_hook or \_\_free\_hook can result in getting a shell.
 
-Ini exploit lengkap aku:
+Here's my full exploit:
+
 ```python
 import sys
 from pwn import *
@@ -1059,5 +1061,5 @@ p.sendline("1")
 p.interactive()
 ```
 
-### Feedback untuk diri sendiri
-Aku ingin minta maaf jika soal saya menjadi sangat jelek. Aku cepat-cepat ingin selesai sehingga I/O nya menjadi buruk, tapi sekaligus aku terlalu semangat sehingga terdapat fungsi bodoh seperti usleep(), rand(), dan alarm(). Aku janji untuk kedepannya aku akan coba untuk membuat soal yang lebih bagus dan mengujinya secara penuh kedepannya. Selamat bagi tim yang solve, sayangnya aku tidak sempat ke final sebab aku jatuh sakit setelah kualifikasi Cyber Jawara.
+### Feedback to myself
+In my part I apologize if my problem ended up being to annoying to solve. I was rushing so the I/O was bad, but I was also too ambitious so I ended up having stupid functions like usleep(), rand() and alarm() which was terrible. I promise in the future I will try to make better problems and fully test them in the future. Congratz to the teams that did solve it, sadly I didn't make it to the finals to meet anyone because I became sick after Cyber Jawara quals.
