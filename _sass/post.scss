@@ -23,6 +23,17 @@
   color: grey;
 }
 
+.post-content li:before  {
+  content: "•";
+  font-size: 1em;
+  margin-left: 5px;
+  padding-right: 5px;
+}
+
+.post-content ul {
+  margin-bottom: 5px;
+}
+
 .post-info {
   line-height: 24px;
   margin: 10px 0;

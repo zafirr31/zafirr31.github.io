@@ -23,7 +23,7 @@ a:hover {
 blockquote {
   margin: 15px;
   padding-left: 15px;
-  border-left: 2px solid #888;
+  border-left: 0.2em solid #888;
 }
 
 h1 {
@@ -38,7 +38,7 @@ h4,
 h5,
 h6 {
   line-height: normal;
-  margin: 18px 0 0 0;
+  margin: 18px 0 9px 0;
   text-indent: 0;
 }
 
@@ -55,11 +55,6 @@ hr {
 
 img {
   max-width: 700px;
-}
-
-ol,
-ul {
-  margin-left: 0.5em;
 }
 
 p {
