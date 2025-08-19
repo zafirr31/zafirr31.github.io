@@ -70,7 +70,7 @@ struct vk_header {
 
 * signature -> This is just a magic number to check if a file is not corrupted. In this challenge, it's not used much, but some filesystems may do something similar
 * next_lfs_block -> In vkfs, we store files in blocks with size 0x10000 each. If a file is larger than this, we use next_lfs_block to indicate where the next block is. This will be explained later
-* nlink -> In Linux, multiple files can point to the same data. this is called 'linking'. nlink is a counter for how many links a file point to this data
+* nlink -> In Linux, multiple files can point to the same data. this is called 'linking'. nlink is a counter for how many files point to this data
 * mode -> The same as mode in Linux
 * uid -> The same as uid in Linux
 * gid -> The same as gid in Linux
@@ -196,36 +196,36 @@ Answer: We can see how in `vk_write`
 `vkfs.c, line 1161-1189`
 ```c
 size_t original_offset = offset;
-    offset += sizeof(struct vk_header);
-    size_t written = 0;
-    while (size > 0) {
-        size_t writing = size;
-        if (offset < VK_BLOCK_SIZE) {
-            if (writing + offset > VK_BLOCK_SIZE) { // [1]
-                writing = VK_BLOCK_SIZE - offset;
-            }
-            write_file(*file, (void *)buf + written, offset, writing);
-            size -= writing;
-            written += writing; 
+offset += sizeof(struct vk_header);
+size_t written = 0;
+while (size > 0) {
+    size_t writing = size;
+    if (offset < VK_BLOCK_SIZE) {
+        if (writing + offset > VK_BLOCK_SIZE) { // [1]
+            writing = VK_BLOCK_SIZE - offset;
         }
-
-        if (size == 0 || coord.mip == 0) { // [2]
-            break;
-        }
-
-        if (next_lfs_coord(&coord, header.next_lfs_block) == 0) { //[3]
-            offset -= VK_BLOCK_SIZE - sizeof(struct vk_header) - writing;
-        } else if (place_lfs_block(&coord, file) < 0) { // [4]
-            break;
-        } else {
-            offset = sizeof(header);
-        }
-
-        file = &state->files[file->lfs_fd];
-        read_file(*file, &header, 0, sizeof(header));
+        write_file(*file, (void *)buf + written, offset, writing);
+        size -= writing;
+        written += writing; 
     }
+
+    if (size == 0 || coord.mip == 0) { // [2]
+        break;
+    }
+
+    if (next_lfs_coord(&coord, header.next_lfs_block) == 0) { //[3]
+        offset -= VK_BLOCK_SIZE - sizeof(struct vk_header) - writing;
+    } else if (place_lfs_block(&coord, file) < 0) { // [4]
+        break;
+    } else {
+        offset = sizeof(header);
+    }
+
+    file = &state->files[file->lfs_fd];
+    read_file(*file, &header, 0, sizeof(header));
+}
 ```
-If `writing + offset > VK_BLOCK_SIZE`, we only write `VK_BLOCK_SIZE - offset` bytes [1]. This is exactly 0xffa8 bytes. If there is still more data [2], we then check if we already have a next block in `next_lfs_coord` [3]. If none exist, than we create a new block in `place_lfs_block` [4].
+If `writing + offset > VK_BLOCK_SIZE`, we only write `VK_BLOCK_SIZE - offset` bytes [1]. This is exactly `0xffa8` bytes. If there is still more data [2], we then check if we already has a next block in `next_lfs_coord` [3]. If none exist, than we create a new block using `place_lfs_block` [4].
 
 Lets look at `next_lfs_coord`, which will give us insight into how we store the next block.
 
@@ -246,7 +246,7 @@ static int next_lfs_coord(struct vk_coord *coord, uint8_t block) {
 if our current mip level is not 0 and next_lfs_block is not 4, the next block is at level mip-1, coordinate x\*2 + [0,3], coordinate y\*2 + [0,3].
 > Note: I forgot what this kind of algorithm is called. I never studied computer graphics formally 🫤
 
-How many mip level are possible? Well, during `vk_init`, we create the sparse image in `create_image`. This image has set max mip layer to 15.
+How many mip levels are possible? Well, during `vk_init`, we create the sparse image in `create_image`. This image has max mip layer set to 15.
 
 `vkfs.c, line 1438-1456`
 ```c
@@ -273,7 +273,7 @@ static void create_image(VkDevice device, VkCommandBuffer command_buffer, VkQueu
 
 However, the coordinate of our file is only stored as a 16 bit integer ino (inode number stored in dentry, explained later).
 
-`vkfs.c line 13-43`
+`vkfs.c, line 13-43`
 ```c
 #define MAXMIP 6
 
@@ -313,9 +313,9 @@ We can also see `MAXMIP` is 6, which means we only can use mip level 0-6 (This i
 ## Dentry
 In a filesystem, usually folders will store pointers to inodes within that folder. This is usually accompanied with other metadata, such as a filename. This is called a 'dentry' (directory entry). Filesystems will store multiple dentries in a 'dentry cache', for faster lookup. 
 
-In vkfs, there is no dentry cache implementation. Instead, each time we lookup a file, we must lookup the entire path, ensuring every folder exists and access is allowed. This is called a pathname lookup and is very complex, despite it feeling easy. You can read a full article about it on kernel.org [here](https://www.kernel.org/doc/html/latest/filesystems/path-lookup.html)
+In vkfs, there is no dentry cache implementation. Instead, each time we lookup a file, we must lookup the entire path, ensuring every folder exists and access is allowed. This is called a pathname lookup and is very complex, despite it seeming easy. You can read a full article about it on kernel.org [here](https://www.kernel.org/doc/html/latest/filesystems/path-lookup.html)
 
-During the pathname lookup, the linux kernel will call `vk_getattr` for each folder, until a file is found. This leads us to the `resolve_path` function, which is how children are found in a parent folder.
+During the pathname lookup, the linux kernel will call `vk_getattr` for each folder, until a file is found. This leads us to the `resolve_path` function, which is how dentries are found in a parent folder.
 
 `vkfs.c, line 472-509`
 ```c
@@ -361,19 +361,19 @@ static int resolve_path(const char *path, struct vk_coord *coord) {
 
 For a certain path, we first get the inode data from the 'parent'. The parent is just the current folder, for example, the parent of /quandale/flag.txt is /quandale.
 
-This inode data is the data of the folder, which holds all of the dentries. Then we use find_dirent to find the ino for our filename. The ino is then converted into a coord, so we can get the inode data for the file.
+This inode data is the data of the folder, which holds all of the dentries. Then we use `find_dirent` to find the ino for our filename. The ino is then converted into a coord, so we can get the inode data for the file.
 
-> Note: There are so many bugs here. Try to find them all 😆
+> Note: There are so many bugs in the above code. Try to find them all 😆
 
 Ok, now you should have a basic understanding for a filesystem, atleast enough to solve vkfs. Here's a quiz if you want to try testing your knowledge:
 
-> I skipped a bit on how folders are stored in vkfs. How are they stored? Is there anything special about the inode? (Hint: in linux, everything is a file!)
+> Quiz: I skipped a bit on how folders are stored in vkfs. How are they stored? Is there anything special about the inode? (Hint: in linux, everything is a file!)
 
 <br>
 
 If you want to learn more about how filesystems work in linux, [this article](https://static.lwn.net/kerneldoc/filesystems/index.html) is a good resource.
 
-> This is a good point to take a break
+> This is a good spot to take a break
 
 <br>
 <br>
@@ -464,7 +464,7 @@ First, the new path is checked to see if it exists [1]. If it does [2], we reduc
 
 Next, its important to overwrite a few more fields in the header. First, we want `mode` to be 777, so we can read it. We need to make sure its a file (not a folder), this is also set in the `mode` field. Next, we need to set the `size` to be greater than 0x10000, and set `next_lfs_block` to 0.
 
-Last, we want to overwrite the `new_coord`. The want to save it in mip level **7**, with coordinate 0,0
+Last, we want to overwrite the `new_coord`. We want to save it in mip level **7**, with coordinate 0,0
 
 > Pause: Try to think about what I am trying to achieve. What I have explain above is already enough to read the flag. How?
 
@@ -565,7 +565,7 @@ int main() {
     sprintf(tmp, "%s/%s", tmp, payload0);
     rename(pmt, tmp); 
 
-    // This is the file we will move .../<payload0/aaaaaa to
+    // This is the file we will move .../<payload0>/aaaaaa to
     char *payload1 = "\x4E\x4A\x48\x54\x4F\x48";
     sprintf(pmt, "%s/%s", PATH_BASE, payload1);
     mknod(pmt, 0755, 0);
@@ -697,4 +697,4 @@ Thanks for playing SekaiCTF 2025! I really enjoyed making this challenge, this w
 
 <br>
 
-Answer to quiz: Folder and files are the same! A folder is just an inode with specific data, and the mode in the header is set to S_IFDIR. Other than that, its the _exact_ same for an inode that is a directory or a file. Really cool :)
+> Answer to quiz: Folder and files are the same! A folder is just an inode with specific data, and the mode in the header is set to S_IFDIR. Other than that, its the _exact_ same for an inode that is a directory or a file. Really cool :)
