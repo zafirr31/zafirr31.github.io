@@ -4,7 +4,7 @@ author: zafirr
 title:  "SekaiCTF 2025 vkfs writeup"
 description: baby's first filesystem exploit
 date: 2025-08-18
-last_modified_at: 2025-08-18
+last_modified_at: 2025-08-19
 categories: writeup
 lang: en
 tags:
