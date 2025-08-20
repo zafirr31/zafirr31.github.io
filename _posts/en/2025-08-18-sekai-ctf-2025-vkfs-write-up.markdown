@@ -423,7 +423,9 @@ static const char *get_parent_and_filename(const char *path, char *parent) {
 
 Since vkfs is compiled without stack protection, variables allocated on the stack are not reordered by the compiler. This means in the stack, the memory after `old_parent_path` is `new_header` and `new_coord`
 
-Using this buffer overflow, we can create a folder with with long name, store a file in that folder, and move the file to a different directory. However, the `new_path` must already exist! This is because of this logic in `vk_rename`
+Using this buffer overflow, we can create a folder with with long name, store a file in that folder, and move the file to a different directory (`new_path`). This will overflow `old_parent_path` and allow us to change `new_header` and `new_coord`.
+
+However, the `new_path` must already exist! This is because of this logic in `vk_rename`
 
 `vkfs.c, line 843-873`
 ```c
@@ -507,7 +509,7 @@ By coincidence, /quandale/flag.txt is stored in mip 6 coordinate 0,0. So, if we 
 This is how we will get the flag.
 
 ### Solve script
-There are some things we need to make sure about when making our files. vkfs is really buggy, so sometimes we need has collision to help us. I've added some comments in my solve script to help understand.
+There are some things we need to make sure about when making our files. vkfs is really buggy, so sometimes we need a hash collision to help us. I've added some comments in my solve script to help understand.
 
 `vkfs_exp.c`
 ```c
