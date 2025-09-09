@@ -1,6 +1,4 @@
-<div class="container-posts">
-  {% for post in site.posts %}
-    {% if post.lang == page.lang %}
+<div class="container-posts"> {% for post in site.posts %} {% if post.lang == page.lang %}
       <div class="posts-list-item">
         <span class="posts-list-item-name float-left">
             <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
@@ -8,9 +6,7 @@
         <span class="posts-list-item-date float-right">
           {{ post.date | date: '%Y-%m-%d' }}
         </span>
-      </div>
-    {% endif %}
-  {% endfor %}
+      </div> {% endif %}{% endfor %}
   {% if paginator.total_pages > 1 %}
   <div class="list-pagination">
     {% if paginator.previous_page %}
