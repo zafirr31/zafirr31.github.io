@@ -36,7 +36,7 @@ We can find the SMM Module called "ChallengeModule"
 
 We can then extract the PE Image Section, which we can then decompile with IDA/Ghidra/Binja
 
-According to the challenge author, he used [efiXplorer](github.com/binarly-io/efiXplorer) to help with the reversing. This is because without it, many of the EFI functions are unknown to us.
+According to the challenge author, he used [efiXplorer](https://github.com/binarly-io/efiXplorer) to help with the reversing. This is because without it, many of the EFI functions are unknown to us.
 
 ![Error](/assets/images/acsc_2025_submerge_me_more/3.png)
 
@@ -91,7 +91,6 @@ Then we just set the CommBuffer just like the corctf writeup
 Let's take a look again at ChildSmiHandler6.
 
 ```c
-
 undefined8
 ChildSmiHandler6(undefined8 param_1,undefined8 param_2,undefined4 *CommBuffer,
                 ulonglong *CommBufferSize)
