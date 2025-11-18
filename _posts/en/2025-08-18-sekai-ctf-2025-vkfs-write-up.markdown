@@ -44,7 +44,7 @@ Answer: It will check the some bytes at a specific offset. At these offsets, the
 
 From here, the kernel can determine what it needs to do to manage the data in out SSD. For example, the filesystem could say "the first file is at offset 0x1000, the metadata is stored at offset 0x1000 and the data is at offset 0x1100". Each filesystem can have different things in the metadata. This includes access, ownership, filename, parent file, and many other things.
 
-In Linux, there are many filesystem implementations. The most popular on is [ext4](https://www.kernel.org/doc/html/latest/admin-guide/ext4.html), but some other popular ones include [XFS](https://en.wikipedia.org/wiki/XFS), [NTFS](https://en.wikipedia.org/wiki/NTFS), and [ExFAT](https://en.wikipedia.org/wiki/ExFAT). You can click [here](https://elixir.bootlin.com/linux/v6.12.41/source/fs) to see all the filesystems that are implemented in Linux at the time of writing.
+In Linux, there are many filesystem implementations. The most popular one is [ext4](https://www.kernel.org/doc/html/latest/admin-guide/ext4.html), but some other popular ones include [XFS](https://en.wikipedia.org/wiki/XFS), [NTFS](https://en.wikipedia.org/wiki/NTFS), and [ExFAT](https://en.wikipedia.org/wiki/ExFAT). You can click [here](https://elixir.bootlin.com/linux/v6.12.41/source/fs) to see all the filesystems that are implemented in Linux at the time of writing.
 
 To solve vkfs, we need to understand 3 common terminology used in filesystems. Metadata, inode, and dentry.
 

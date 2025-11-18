@@ -1,0 +1,179 @@
+---
+layout: post
+author: zafirr
+title:  "7 Years."
+description: pwning ring -2 
+date: 2025-11-13
+last_modified_at: 2025-11-18
+categories: blog
+lang: en
+tags:
+    - blog
+    - anniversary
+---
+
+<br>
+Today, 13th November 2025, marks the 7 year 'anniversary' of me playing CTFs and seriously studying cybersecurity in general. So let me reminisce of my journey so far.
+
+## Pre 13th November 2018
+Let me start from before 13th November 2018. I was still a freshman at my university, about 3 months in. I had a dream of becoming a top [Competitive Programmer](https://en.wikipedia.org/wiki/Competitive_programming), to participate in the [ICPC World Finals](https://icpc.global/) and bring back the first podium position for an Indonesian university. Back in highschool, I managed to secure a bronze medal (top 16th to 30th) at the [National Science Olympiad](https://en.wikipedia.org/wiki/Indonesia_National_Science_Olympiad) in Indonesia. I attended the Indonesian selection for participants of the [Internasional Olympiad in Informatics (IOI)](https://ioinformatics.org/), but failed miserably during the first round. Entering University, I wanted to fulfill my dream and actually take competitive programming seriously.
+
+<br>
+I gave up in October.
+
+<br>
+You see, I wasn't the only person in my university to win a medal during the National Science Olympiad. In fact, 3 of the 5 gold medalists were my peers, and there were several silver and bronze medalists too. While I slacked a LOT after failing to pass the selection for IOI, most of them didn't. They were much more dedicated than me and were just a couple leagues above me in skill. Considering Indonesia isn't a top contender in ICPC, and they were already much better than me, I quit. Quitting wasn't easy, but I thought about it very rationally. It _was_ possible to tryhard like my life depended on it, and _maybe_ I would have reached my original goal. But the chance was not very high, I was just too far behind, so quitting was my choice.
+
+I then met a senior that would change my entire life. I don't want to mention him by name for privacy's sake, but let's just call him "Batman". Batman was _similar_ to me, he didn't completely stop trying for ICPC, but he did change his main focus. We talked for a bit, and he said I should try CTFs. At that point, I had no idea what CTFs were, but he managed to convince me to try it. On October 20th, I opened [CTFlearn](https://ctflearn.com/) for the first time, and made an account. I tried to solve challenges, and I think I solved some free challenges (e.g. "Practice flag"), but I basically learnt nothing about cyber security. For a few weeks, Batman taught me some basic concepts like [injection](https://owasp.org/www-community/Injection_Theory) and [steganography](https://en.wikipedia.org/wiki/Steganography) (yes I was taught this). After I solved a few more web challs on ctflearn, on 13th November 2018 I decided to dedicate much more time to learning this field.
+
+{:refdef: style="text-align: center;"}
+![Error](/assets/images/7_Years/1.png)
+<small>CTFlearn dashboard. Nice to see it still exists</small>
+{: refdef}
+
+## November 2018 - March 2019
+Now comes the big question that all newbie CTFs players have to answer. What category should I main? If you are out of the loop, there are 5 categories that often appear during CTFs (these 5 are the most mainstream, at least at the time). Web exploitation, reverse engineering, binary exploitation (a.k.a. pwn), cryptography, and digital forensics. Although nowadays I almost exclusively do binary exploitation, at the time I wanted to main [cryptography](https://en.wikipedia.org/wiki/Cryptography). This was because crypto was and is math intensive, and I was always told by my family, friends, and teachers, that I was good at math. I also felt the same way. During senior highschool, I almost always aced my math tests. I loved learning anything about math, I watched math videos, looked up interesting proofs, etc. _To this day_ I still love doing that. So diving into crypto just made the most sense. I also did reverse engineering as a side category, since some of the challs I tried also had math concepts.
+
+I played my first local CTF (I'll be referring to Indonesian CTFs as 'local', and others as 'international') in January 2019, in an event called [arkavidia](https://github.com/arkavidia-hmif). Along with 2 other friends, we tried our best to be in the top 10 during the qualifying stage, as the top 10 would be invited to an onsite finals. However, we were unsuccessful. I think during the entire qualifying stage, I only solved the easy rev (?) challenge, while my other 2 friends solved an easy web challenge. I wish I had archived the challenges, as it would've been nice to compare my skills to those challenges. This is also before local CTFs used discord for communication, instead [LINE](https://www.line.me/en/) was mostly used. This meant I didn't even really get to discuss with other teams on how challenges were solved.
+
+My second local CTF was called [Joints](https://www.linkedin.com/company/jointsugm/). Unlike my first CTF, this time I actually made it to the finals. I remember (vaguely) being quite happy and sharing it with all of my friends. However, during the finals my team got a big fat ZERO POINTS 🤣. Oh well, 3 other teams (out of 10), also got 0 points.
+
+Around this time I had joined the local CTF 'club' in my university, and I had a lot of time to talk with Batman. One time while we we're practicing with some challs, he told me "Why don't you try binary exploitation?". My reaction went something like "Really? BinEx? What even is a buffer overflow?" which I felt is a normal reaction. No matter how good you are at programming, the first time you learn the concept of a [buffer overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow  ), you're gonna go "Huh? What? I don't get it."
+
+But Batman insisted I might be interested in it, so he gave me a playlist by [Cyber Security IPB (CSI)](https://www.youtube.com/@CyberSecurityIPB/videos), the CTF club from [IPB University](https://www.ipb.ac.id/). At the time, CSI had the best CTFs players in Indonesia, and they released content for free in video form which tbh, I feel very grateful for. If anyone from CSI during that period is reading this: From the bottom of my heart, thank you very much. Your videos are great and they truly helped clear some stuff I had trouble understanding.
+
+{:refdef: style="text-align: center;"}
+![Error](/assets/images/7_Years/2.png)
+<small>CSI youtube page. Make sure to subscribe! (ignore the fact I'm not... 😅)</small>
+{: refdef}
+
+For about 2 months, I spent my time learning how to pwn. I was dedicated, so I started with learning how to code in C effectively. I learnt about memory management, stack vs heap, libc, etc. At one point, I decided I needed to learn assembly, so I printed out some documents on how assembly and shellcoding works (this was way cheaper than buying a book 😂) There were times when I was hanging out with friends in the library, and somehow I was the only one reading physical paper and NOT coding. I actually got really good at assembly, I even created an assembly only reverse engineering challenge for the local CTF my university was going to hold. I wrote about it in my [second blog post](/en/2019-11-14-long-overdue-ctf-compfest-11-writeups#2-red-pill-or-blue-pill-reversing).
+
+Eventually I got pretty good at the basics, and I was able to exploit basic ret2win and ret2libc challenges. In April, Batman introduced me to [pwnable.tw](https://pwnable.tw/).
+
+{:refdef: style="text-align: center;"}
+![Error](/assets/images/7_Years/3.jpg)
+<small>My printouts I used to read to get better at pwning. <br>The heap one was printed a bit later</small>
+{: refdef}
+
+## April 2019 - March 2020
+Batman explained how pwnable.tw was only for the best of the best. Like, if you want to be a top pwner, this is one of those things to test your might. He said that at my current knowledge, I would have trouble with the first challenge, "Start". He wasn't wrong. If you who are reading this are trying to learn pwn, go ahead and try the Start challenge in pwnable.tw. It's a good first challenge to push how much you understand the basics of pwn.
+
+I skimmed the rankings on pwnable.tw, and at the time there were basically no Indonesians even close to solving 20% of the challenges. Batman himself only solved 3, and he said any other challenge was too hard for him. But he encouraged me to try the challenges, and if I could solve even something like 10 challenges it would already be enough to win most of the local CTFs. So, thats what I set out to do. For both the challenges "Start" and "orw", Batman helped me solve them. He gave me pointers on how to use [gdb](https://en.wikipedia.org/wiki/GNU_Debugger), make solve scripts using python and [pwntools](https://github.com/Gallopsled/pwntools), etc. The basics of pwning. Afterwards, he said he wouldn't help me anymore. Not that he didn't want to, but that he couldn't (except for one chall, but he didn't want to help me on that one).
+
+One vivid memory I have is during one of my discrete maths classes. I was sitting next to my friend, and instead of focusing on the class, I was DEAD SET on solving the challenge 'dubblesort'. Multiple times during that class, I pestered him with "I think im close", "bro this is so close whats wrong", "am I stupid? this is challenge is so annoying", etc. Eventually, I solved it just as the class ended.
+
+I spent lots of time on this website, If you check my [pwnable.tw account](https://pwnable.tw/user/15989), I solved 19 challenges between April 2019 and March 2020. pwnable.tw also had a [discord server](https://discord.gg/fdHJVhk), and I was lucky enough to be part of the "active phase" of this server. I had been able to ask many top pwners in that discord server, which motivated me even more.
+
+{:refdef: style="text-align: center;"}
+![Error](/assets/images/7_Years/4.png)
+<small>pwnable.tw the GOATED website. Loved solving the challenges 🙏</small>
+{: refdef}
+
+During this time, Batman also told me about two top pwners in Indonesia. He said I should strive to beat them, as they were the best of the best at the time. These were [circleous](https://circleous.github.io/) and [n0psledbyte](https://x.com/n0psledbyte). circleous is one year above me, the same as Batman. He was a member of [CSI](https://www.youtube.com/@CyberSecurityIPB/videos), and was the "dark horse" of the team. Unlike me, he actually won a local CTF in his first year in university. The first time I "met" him (I say met, more like saw in person), was during the [Joints](https://www.linkedin.com/company/jointsugm/) CTF finals I mentioned before. He won that CTF.
+
+n0psledbyte was actually 1 year YOUNGER than me. This meant at the time, I was a university freshman he was still a high school student 🤯. If you're reading this and from a developed country like the US, this isn't super surprising. But in Indonesia, this is very rare. CTFs aren't super well known in Indonesia, unlike competitive programming. So knowing there was talent for CTFs in high school, and someone Batman felt was "top", was scary yet motivating. I first met n0psledbyte in 2019 during [Cyber Jawara](https://cyberjawara.id), which was the biggest CTF in Indonesia (at the time). He got second during that CTF (Actually, he should have been first [\[1\]](#footnote-1))
+
+Another notible CTF from this period is actually [arkavidia](https://github.com/arkavidia-hmif) from before. However this time, it was the 7th edition in 2020. And this time, I actually won! My team got second, losing to circleous and his team in first. This was a big motivator for me to continue playing CTFs, and results began to show after many months of hard work.
+
+The last notible CTF I want to talk about is [SECCON CTF 2019](https://ctftime.org/event/799). This was the first big international CTF I played, and I played it together with Batman and some other notible CTF players from Indonesia at the time under the name [Bat Family](https://ctftime.org/team/90769). This was notible because, we got 22nd place in a CTF where 12 teams qualify for the finals. Not only that, we weren't too far behind, just 4-5 challenges behind qualifying. This was a _big_ motivator for me. I never thought I would be able to compete on an international level, and yet this was proof that it was possible. How naive I was...
+
+## March 2020 - July 2022
+Around March or April 2020 was the time the pandemic really started to ramp up in Indonesia. The first infection in was in early March, and I was soon told my university studies were to be done online for atleast 2 weeks. 2 weeks. Yup, only 2 weeks 🫤. Originally, me and my friends were excited that we could now laze off at home, but after a few weeks with no improvement, we grew tired of staying at home all day. It hit us mentally very hard.
+
+The first thing I want to mention is how I developed a kind of 'brain fog' during this time. Instead of constantly pushing myself to become a better CTF player, I slowly started to lose motivation. If you look at my account on pwnable.tw, I only solved 7 challenges in this period. I was starting to distance myself from improving much as a CTF player. But I still played CTFs, sometimes forced, sometimes not. The interesting thing is, whether or not I was forced didn't matter. Somehow, the 'brain fog' I consistently felt just went away when I played CTFs. 
+
+July-October 2020 was an interesting time. I was the event organizer for [COMPFEST CTF](https://ctftime.org/event/1123). This is the annual local ctf that my university holds, but I had the idea to host a 'mirror contest' that was international without any prizes. My original goal was to show the potential that Indonesian CTF players have to the world, since I knew there was lots of talent but not enough exposure. The first iteration went really well, thanks to my team we managed to hold the CTF without many issues, and we even got some good feedback from the people that participated. The mirror contest is still held annually, which I'm really happy about, thank you my juniors! At the time of writing, COMPFEST CTF 2026 will have a rating of 96 🤯. Tbh I think its too much, I expected (and still expect) for it to stablize around 40-50 if my juniors keep holding it. Also I hope there are prizes in the future 👀.
+
+COMPFEST CTF also had a local finals, only for Indonesian students. This was the first time I did good 'research' to make the pwn challenges. I not gonna lie, I made some great challenges. The three challenges I made for pwn were a c++ challenge (a simple challenge about abusing strings), a hard ROP challenge (which needed creative gadgets like 3d gadget), and a challenge using glibc 2.32 (Note at this time, safe linking wasn't a known mitigation yet 😆). These were all innovative challenges that really weren't seen yet in local CTFs. Nowadays good research like this is more common, which I'm really happy about. My challeges got lots of praise from n0psledbyte, and he made a writeup on the challenges [here](https://blog.weirdexploit.dev/2020/09/29/compfest-12-finals-pwn-writeup/) (note its in Indonesian)
+
+{:refdef: style="text-align: center;"}
+![Error](/assets/images/7_Years/5.png)
+<small>The first Indonesian CTF on CTFtime (AFAIK). Look who won 👀 [\[2\]](#footnote-2)</small>
+{: refdef}
+
+Other than that, there isn't really much to talk about in this period, mostly cause I don't remember much of it. But keeping up with the community, I did end up being the 'top' pwn player in the Indonesian CTF scene. Very rarely did I not solve (and first blood) a pwn challenge during a local CTF, and if I didn't it was usually a really hard challenge by circleous. 
+
+I did relax the amount of CTFs I played in late 2021, mostly because I wanted to finish my bachelors thesis so I could graduate. I was 95% done in May 2022, so I wanted to become active again in CTFs. I joined an Indonesian team called [Sekte Gadeng](https://ctftime.org/team/160137). I played 1 CTF with them, [Imaginary CTF 2022](https://ctftime.org/event/1670) and we did pretty well.
+
+## July 2022 - May 2024
+In July 2022, I had the sudden urge to join an international team instead. I found one on CTFtime, a team called "Project Sekai". I recognized the [game](https://pjsekai.sega.jp/), so I was interested in joining. The first thing I see on the CTFtime page? "We are looking for Reversing and Pwn players!". I instantly went: "Hey I'm a reversing and pwn player!". I filled the form, and not long after [sahuang](https://x.com/sahuang97) DMed me on discord, asking when I could play to tryout with the team.
+
+I didn't expect that much from joining the team. My original goal was to expand my exposure, I wanted to see for myself the skills of people from other countries. From here, I could compare my own knowledge and see what skills I might be lacking. I was a bit... _afraid_. I was scared my own skills were way behind everyone else and I wouldn't meet peoples expectations.
+
+Surprisingly, I wasn't that far behind. In fact, -- and this may sound cocky -- I was slightly above the skill of the other pwners in project sekai at the time. During [corCTF 2022](https://ctftime.org/event/1656) (my ~~first~~ second CTF with the team), I managed to solve most of the pwn challenges. If I remember correctly, we only failed to solve 3 challenges, 2 kernel pwns and 1 browser. At the time, my kernel knowledge was so little, but seeing [Triacontakai](https://github.com/triacontakai) try to solve the [Cache of Castaways](https://www.willsroot.io/2022/08/reviving-exploits-against-cred-struct.html) challenge was really inspiring. We got 4th during this CTF, and seeing how really top pwners like [kylebot](https://www.kylebot.net/) and [pql](https://blog.dbouman.nl/) were playing this CTF, it meant the CTF was pretty good. This boosted my motivation even more.
+
+{:refdef: style="text-align: center;"}
+![Error](/assets/images/7_Years/6.png)
+<small>My first ever interaction with sahuang</small>
+{: refdef}
+
+You have to remember that project sekai wasn't a "top" team at this time. The team was new, only 1 year old, and many of CTFs we decided to play were "low rated". What was really nice about the team was the members just loved playing CTFs. We all loved to just play together, tryhard some challenges, learn new things, etc. Our expectations weren't super high, and I can guarantee you if you asked sahuang if he imagined the team would get this "famous" he would say no. Regardless, the team grew, the members got stronger, some left, some 'retired', some joined, and the team got good enough that we started qualifying for onsite finals.
+
+
+Aside from playing in Project Sekai, [farisv](https://www.linkedin.com/in/fariskhi/), a legend in the Indonesian CTF community, gathered some of the top Indonesian CTF players to create the team [SKSD](https://ctftime.org/team/211952), and I was invited to join. His goal was to show the world that Indonesia has top CTF players, and that we aren't as backwards as some may think in the security field (If you follow some Indonesian news, we've had terrible cybersec incidents in the past few years). We also hoped that we could encourage our government to invest more in non-government talent, either through work opportunities, competitions, etc. This has been and still is a **major** problem we face in Indonesia, and we believed that showing the talent directly through this team would allow us to chip at this problem at least a bit.
+
+SKSD is still running until today, although not as active as before. In 2023, we got 9th place overall in CTFtime, getting some nice wins such as 3rd in [justCTF](https://ctftime.org/event/1930) and 1st in [Securinets Quals](https://ctftime.org/event/1874). We also played some big CTFs such as [Google CTF](https://ctftime.org/event/1929) and [Codegate](https://ctftime.org/event/2006), which made us a bit more known in the International community. We're trying to play actively again, maybe we'll see some resurgance in 2026.
+
+{:refdef: style="text-align: center;"}
+![Error](/assets/images/7_Years/7.png)
+<small>How so much can change in 3 years</small>
+{: refdef}
+
+Besides playing with teams, I also played a solo CTF called ACSC (Asian Cyber Security Challenge) in 2023. This was the second ACSC, which is a selection CTF for members of [Team Asia](https://acsc.asia/) to play in the [International Cybersecurity Challenge (ICC)](https://en.wikipedia.org/wiki/International_Cybersecurity_Challenge). In 2023, the location of ICC was to be held in San Diego, California. Somehow, after 24 hours of no sleep (I actually didn't end up sleeping for 36 hours, then crashed hard), I qualified as the representative from Indonesia. I was really happy, since this was the first onsite CTF that I had the opportunity to play abroad.
+
+It wasn't without complications though. You see, the way ICC works is each region (there were 7 regions, 8 at the time of writing) are meant to find sponsors for their representatives. For team Asia, the plan was each member country (Japan, Korea, Mongolia, Taiwan, Singapore, Vietnam, Indonesia, Malaysia, and Thailand) were to each find their own sponsors, and pay for the representative for their country. However in the case of Indonesia specifically, the company which originally promised to sponsor the Indonesian representative (me) declined to proceed with sponsoring. This meant the only way I could go was to pay for travel and accomodation by myself, which was not possible because a trip to the US is extremely expensive. After discussing with the team Asia Steering Committee, [Kana Shinoda](https://www.linkedin.com/in/kana39) of [Code Blue JP](https://codeblue.jp/en/) was able to get partial sponsorship for me in the form of full accomodation and 50% of flight. Although it was still expensive for me as someone from Indonesia, I'm still very thankful that Kana-san was able to provide such a sponsorship.
+
+During ICC, I was able to meet so many new people that I wouldn't have met before. Some notible names are [ptr-yudai](https://ptr-yudai.hatenablog.com/), a very famous CTF player from Japan, mochizou (I really which I could link something related to  him), a top rev player from Vietnam (who is also my colleague now), [JoshL](https://joshl.ca/) the leader (at the time) of a famous CTF team called [idek](https://idek.team/), and many more. I was also appointed as one of the co-captains for Team Asia, and thankfully we were able to get [3rd overall](https://en.wikipedia.org/wiki/International_Cybersecurity_Challenge#2023) and 1st during the Attack-Defence portion of the competition.
+
+It also happens to be that ICC was just before [Defcon](https://defcon.org/), so I decided to attend it at the same time. Project Sekai actually planned to have a meet up during Defcon, so the stars aligned. This was the first time I was able to meet the other members of the team, and it was cool just hanging out as friends instead of playing CTFs (although we ended up playing some CTFs together during Defcon 🤣). One of the days we headed to a rhythm game arcade, had some dinner, and ~~gambled~~ [took some photos](https://x.com/ProjectSEKAIctf/status/1689864083179544576) to commemorate our first meet up. To be honest, I didn't really like vegas, its too hot and too much gambling and drunk people. It's also very depressing seeing many people who are addicted to gambling get pushed to gamble consistently, even at the airport. But I digress, this blog post isn't about vegas.
+
+After ICC, I also attended my second onsite CTF abroad during [Black Hat MEA](https://blackhatmea.com/) 2024 Finals. I was playing with Project Sekai, and we were trying to get top 5 to earn some prize money. Sadly we got 6th :/. Although we didn't win I still got to meet some cool people like [Crazyman](https://x.com/CrazymanArmy) for the first time.
+
+Soon after I decided to resign from my job as a software engineer to join [Traveloka](https://www.traveloka.com/) as a security engineer. This was a role I was offered to by farisv, as he was the manager of the security team at the time. I decided to take it despite lower pay, as I wanted to experience how working in cybersec was like.
+
+{:refdef: style="text-align: center;"}
+![Error](/assets/images/7_Years/8.jpg)
+<small>They printed our ICC medals with a typo. You had ONE JOB!</small>
+{: refdef}
+
+## May 2024 - May 2025
+I started working at Traveloka in May 2024 as an Offensive Security Engineer. My job was to act as an outside attacker trying to find vulnerabilities in the website. At times I was told to write tools or handle our bug bounty program. The work had basically no relation to binary exploitation, but I was still able to use the fundamental skills to (hopefully) work effectively.
+
+Working in cybersec was definitely very different from doing CTFs. For one, losing the "guarantee" of finding bugs is definitely the biggest "speedbump". Even until now, the possiblity that a bug may not exist is a big hurdle for me. Somehow, I need to shift my mentally from "there is a bug" to "im unsure if a bug even exists" to lying to myself that "there is a bug". This just helps sometimes to motivate me to try to find some real world bugs. Another big difference is testing bugs. Sometimes, bugs are there but we need some special access by the team that created the product. This takes time, and is very common in "corporate" jobs, but still was something I needed to get used to. It's even worse when sometimes a team is using a product which is years outdated but they dont want to buy the latest one cause its too expensive (I hate Oracle).
+
+Overall though, it was a good time working as a security engineer in Traveloka, I definitely got good experience and mentorship from it. Now let's talk about CTFs again.
+
+This period was probably the 'busiest' I've been with CTFs. I played many CTFs both online and onsite. Even just 1 and a half months after joining Traveloka, I already had to take some time off to play in [XCTF 2024 Finals](https://mp.weixin.qq.com/s/UaZVpNnEC9gOC7d8ipxtsA) in China. We didn't win, but XCTF had really cool challenges and visiting china was a cool experience. 1 month after that, I took a trip with my colleague to Defcon, where our team [Friendly Maltese Citizens](https://ctf.mt/) was playing. I didn't contribute much, since I don't really like Defcon CTF challenges. 2 weeks after that, I took a trip to South Korea to play in [Codegate CTF 2024 Finals](https://ctftime.org/event/2347). The CTFtime page doesn't show the scoreboard, but I got 11th with SKSD. Then a few months after that, I played in [SASCTF 2024 Fnals](https://www.kaspersky.com/about/press-releases/kaspersky-announces-winners-of-the-international-cybersecurity-competition-sas-ctf-2024). I got 2nd in that CTF. And lastly in 2024 I played [Black Hat MEA](https://blackhatmea.com/) once again but still didn't win. 
+
+In early 2025, I played 2 CTFs onsite. First, I played [HKCert](https://ctf.hkcert.org/index.html) in Hongkong. I played with Project Sekai and got 2nd, BUT IT WAS REALLY CLOSE TO 1ST IM STILL SAD 😭. HKcert was a [King of the Hill (KOTH)](https://youtu.be/RXgp4cDbiq4?t=597) CTF, instead of a jeopardy or attack & defence CTF. And in March, I played [SECCON CTF 2025 Finals](https://ctftime.org/event/2649). 7th out of 9th may not seem good, but actually it was very possible for us to get a top 3 spot. we just underperformed a bit in web and crypto, but I overperformed in pwn, being the only person to solve 3 out of the 4 pwn challenges :D
+
+I played a bunch of online ctfs too, but I don't want to name all of them.
+
+This period was fun, but I also want to highlight I almost got [burnout](https://www.youtube.com/watch?v=Mt-YuVhsvpY). Burnout sucks, its absolutely the worst thing ever, since it can make doing what you enjoy an absolute pain. Usually people categorize this as when you overexert yourself at _work_, but tbh it can even happen when you do stuff you enjoy. I love doing CTFs, but having to travel a lot and play CTFs weekly can burn me out. In this period I almost hit that mark, but when I feel burnout lurking, I usually take a break from playing CTFs to do other things. Taking breaks is important, even for the stuff you really enjoy doing.
+
+In February 2025, [Jacob Soo](https://www.linkedin.com/in/jacob-soo-982479201/) offered me job at [Star Labs](https://starlabs.sg/). I had never done vulnerability research before, but I convinced myself to try it, as I already had good skills in Binary Exploitation. I joined Star Labs in May 2025.
+
+## May 2025 - now
+I've only been working at Starlabs for a couple months, and I haven't done much I would think. For now, I mostly look at old vulnerabilities, patches, and commits and try to exploit them. The work is definitely much more different than playing CTFs, and maybe in a few months I'll be confident enough to write a blog post about it. For now, I'm just trying to improve my research skills and eventually try to find a couple of 0-days that I can be proud of.
+
+Besides working, I'm still playing CTFs. CTFs are just my biggest hobby. I love doing them, they're just like trying to solve complicated puzzles but with more real life knowledge. Last month, both my teams P1G Sekai (A merger of Project Sekai and [r3kapig](https://ctftime.org/team/58979)) and SKSD played in the onsite finals for [SASCTF 2025](https://ctftime.org/event/2811). I played with P1G Sekai and sadly we didn't win. But, SKSD did win! Very proud of them as this was the first big CTF SKSD won onsite, and we [made the news](https://katadata.co.id/digital/teknologi/6902ba0826574/7-programmer-muda-indonesia-juara-di-kompetisi-keamanan-siber-dunia)
+
+As I'm writing this, ICC 2025 just happened, and I was lucky enough to be one of the challenge authors for the jeopardy portion. Actually, I had the opportunity to be a challenge author for the [Attack & Defence](https://youtu.be/RXgp4cDbiq4?t=83) portion and even help in developing the platform, but I got too anxious once I was added to the group chat (Not to mention I was one of the few remote authors 😵‍💫). Sorry [potetisensei](https://x.com/hugeh0ge) and [icchy](https://x.com/t0nk42), I tried my best to beat my anxiety 😔
+
+## Thanks
+There are many people I would like to thank throughout this time. If I wrote everyone, it would probably be 100+ names, so forgive me if you felt you had in impact in this story but I haven't thanked you directly.
+
+First, my biggest thanks is to Batman (if you forgot, he's the senior that introduced me to CTFs). Truly, I wouldn't be here without him. Not only did he introduce me to CTFs, but he was able to see the potential I had for binary exploitation, pushed me to my limit, continuously encouraged me to try harder, and was my main teacher during my initial years. While I can't repay him back directly, I hope I have been an inspiration to my fellow juniors, as Batman has been to me.
+
+Second, I wanted to thank the people who played local CTFs with me. This includes my peers of my school year, my seniors, my juniors, and everyone else I've met playing CTFs. Being able to play local CTFs every other month during COVID really helped me get passed that time, as it was one of the only ways I could get rid of the 'brain fog' I experienced during that time. I hope the local CTF scene continues to improve, and I hope I can be a part of that process as well.
+
+Third, I want to thank the members of [Project Sekai CTF team](https://x.com/ProjectSEKAIctf) (both past and current), and especially [sahuang](https://x.com/sahuang97). I've learnt so much from being able to meet top talent, from within the team, and the opportunities during participation in top international CTFs. I've been a member for more than 3 years now, and it's still so fun playing together and meeting each other when possible. Joining Project Sekai back in 2022 was probably the best decision in my cybersec career. Yes, even surpassing joining Traveloka and Starlabs (sorry my previous and current employers 😂). The amount of people, ideas, culture, opportunities I've been exposed too is unimaginable. This wouldn't be possible if the team never existed.
+
+Lastly, to all the people who have and continue to inspire me. People such as [n0psledbyte](https://x.com/n0psledbyte), [circleous](https://circleous.github.io/), and [Linz](https://linz04.github.io/), who were my main 'rivals' during my university years, who I always tried to beat to become the top Indonesian pwn player. [farisv](https://www.linkedin.com/in/fariskhi/) and [fachri](https://www.linkedin.com/in/fachrizaloktavian/), who are amazing mentors and leaders in the Indonesian cybersec world. [Liveoverflow](https://www.youtube.com/@LiveOverflow), [John Hammond](https://www.youtube.com/@_JohnHammond), [PwnFunction](https://www.youtube.com/@PwnFunction), [Cyber Security IPB](https://www.youtube.com/@CyberSecurityIPB), [Computerphile(!)](https://www.youtube.com/@Computerphile) and the many other CTF / cybersec content creators. And the many, many, MANY, talented people I have met, both online and offline. 
+
+I have no plans on retiring from CTFs any time soon. Heres to the many years ahead!
+
+### Footnotes:
+<div id="footnote-1"> [1] iirc they got points deducted because their team messed with one of the challenges too much, they messed with one of the challenges to the point it was unsolveable by other teams. I could be misremembering though.
+<div id="footnote-2"> [2] the mirror contest was held a week after the local one to prevent 'cheating', so they knew and had solved most of the challenges already
