@@ -2,9 +2,9 @@
 layout: post
 author: zafirr
 title:  "7 Years."
-description: pwning ring -2 
+description: Looking back 
 date: 2025-11-13
-last_modified_at: 2025-11-18
+last_modified_at: 2026-01-13
 categories: blog
 lang: en
 tags:
@@ -144,9 +144,9 @@ Working in cybersec was definitely very different from doing CTFs. For one, losi
 
 Overall though, it was a good time working as a security engineer in Traveloka, I definitely got good experience and mentorship from it. Now let's talk about CTFs again.
 
-This period was probably the 'busiest' I've been with CTFs. I played many CTFs both online and onsite. Even just 1 and a half months after joining Traveloka, I already had to take some time off to play in [XCTF 2024 Finals](https://mp.weixin.qq.com/s/UaZVpNnEC9gOC7d8ipxtsA) in China. We didn't win, but XCTF had really cool challenges and visiting china was a cool experience. 1 month after that, I took a trip with my colleague to Defcon, where our team [Friendly Maltese Citizens](https://ctf.mt/) was playing. I didn't contribute much, since I don't really like Defcon CTF challenges. 2 weeks after that, I took a trip to South Korea to play in [Codegate CTF 2024 Finals](https://ctftime.org/event/2347). The CTFtime page doesn't show the scoreboard, but I got 11th with SKSD. Then a few months after that, I played in [SASCTF 2024 Fnals](https://www.kaspersky.com/about/press-releases/kaspersky-announces-winners-of-the-international-cybersecurity-competition-sas-ctf-2024). I got 2nd in that CTF. And lastly in 2024 I played [Black Hat MEA](https://blackhatmea.com/) once again but still didn't win. 
+This period was probably the 'busiest' I've been with CTFs. I played many CTFs both online and onsite. Even just 1 and a half months after joining Traveloka, I already had to take some time off to play in [XCTF 2024 Finals](https://mp.weixin.qq.com/s/UaZVpNnEC9gOC7d8ipxtsA) in China. We didn't win, but XCTF had really cool challenges and visiting china was a cool experience. 1 month after that, I took a trip with my colleague to Defcon, where our team [Friendly Maltese Citizens](https://ctf.mt/) was playing. I didn't contribute much, since I don't really like Defcon CTF challenges. 2 weeks after that, I took a trip to South Korea to play in [Codegate CTF 2024 Finals](https://ctftime.org/event/2347). The CTFtime page doesn't show the scoreboard, but I got 11th with SKSD. Then a few months after that, I played in [SASCTF 2024 Finals](https://www.kaspersky.com/about/press-releases/kaspersky-announces-winners-of-the-international-cybersecurity-competition-sas-ctf-2024). I got 2nd in that CTF. And lastly in 2024 I played [Black Hat MEA](https://blackhatmea.com/) once again but still didn't win. 
 
-In early 2025, I played 2 CTFs onsite. First, I played [HKCert](https://ctf.hkcert.org/index.html) in Hongkong. I played with Project Sekai and got 2nd, BUT IT WAS REALLY CLOSE TO 1ST IM STILL SAD 😭. HKcert was a [King of the Hill (KOTH)](https://youtu.be/RXgp4cDbiq4?t=597) CTF, instead of a jeopardy or attack & defence CTF. And in March, I played [SECCON CTF 2025 Finals](https://ctftime.org/event/2649). 7th out of 9th may not seem good, but actually it was very possible for us to get a top 3 spot. we just underperformed a bit in web and crypto, but I overperformed in pwn, being the only person to solve 3 out of the 4 pwn challenges :D
+In early 2025, I played 2 CTFs onsite. First, I played [HKCERT](https://ctf.hkcert.org/index.html) in Hongkong. I played with Project Sekai and got 2nd, BUT IT WAS REALLY CLOSE TO 1ST IM STILL SAD 😭. HKcert was a [King of the Hill (KOTH)](https://youtu.be/RXgp4cDbiq4?t=597) CTF, instead of a jeopardy or attack & defence CTF. And in March, I played [SECCON CTF 2025 Finals](https://ctftime.org/event/2649). 7th out of 9th may not seem good, but actually it was very possible for us to get a top 3 spot. we just underperformed a bit in web and crypto, but I overperformed in pwn, being the only person to solve 3 out of the 4 pwn challenges :D
 
 I played a bunch of online ctfs too, but I don't want to name all of them.
 
