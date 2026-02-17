@@ -6,7 +6,7 @@ description: Indo-focused vulnerability research post 1
 date: 2026-02-17
 last_modified_at: 2026-02-17
 categories: research
-lang: id
+lang: en
 tags:
     - ctf
     - vulnerability research
