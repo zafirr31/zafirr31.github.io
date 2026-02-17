@@ -3,7 +3,7 @@ layout: post
 author: zafirr
 title:  "Prefetch attacks"
 description: Indo-focused vulnerability research post 1
-date: 2026-02-17
+date: 2026-02-13
 last_modified_at: 2026-02-17
 categories: research
 lang: id
@@ -35,9 +35,9 @@ Yang ingin kita dalami adalah instruksi [_PREFETCHh_](https://www.felixcloutier.
 
 Yang menarik dari instruksi _PREFETCHh_ adalah ketiadaan pengecekan _privilege level_. Artinya, user biasa (_unprivileged user_) dapat melakukan _prefetch_ pada alamat memory manapun, termasuk alamat memori kernel*. Ini bukan berarti data yang terdapat pada memori kernel dapat diakses (catatan: Meltdown & Spectre), tapi memori tersebut tetap akan diambil dan disimpan di _cache_ CPU. Level cachenya bergantung pada variasi _prefetch_ yang kita lakukan, dan perbedaan diluar cakupan blog ini.
 
-> Coba berpikir untuk sejenak mengenai paragraf terakhir. Seorang _unprivileged user_ bisa _prefetch_ alamat kernel, tapi ngak bisa diakses. Bagaimana bisa leak alamat kernel kalau ngak bisa diakses?
+> Coba berpikir untuk sejenak mengenai paragraf sebelumnya. Seorang _unprivileged user_ bisa _prefetch_ alamat kernel, tapi ngak bisa diakses. Bagaimana bisa leak alamat kernel kalau ngak bisa diakses?
 
-* Jika KPTI hidup, alamat memori kernel juga tidak dapat dilakukan _prefetch_. Pengecualikan ada pada [CVE-2022-4543](https://www.willsroot.io/2022/12/entrybleed.html)
+\*Jika KPTI hidup, alamat memori kernel juga tidak dapat dilakukan _prefetch_. Pengecualikan ada pada [CVE-2022-4543](https://www.willsroot.io/2022/12/entrybleed.html)
 
 <br>
 <br>

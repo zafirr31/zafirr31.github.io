@@ -3,7 +3,7 @@ layout: post
 author: zafirr
 title:  "Prefetch attacks"
 description: Indo-focused vulnerability research post 1
-date: 2026-02-17
+date: 2026-02-13
 last_modified_at: 2026-02-17
 categories: research
 lang: en
