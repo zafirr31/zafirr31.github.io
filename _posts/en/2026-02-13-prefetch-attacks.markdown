@@ -14,7 +14,7 @@ tags:
 ---
 
 <br>
-This blog post was intended for Indonesian audiences. I'm only including the exercise portion and references that I used to create the blog post.
+This blog post was intended for Indonesian audiences. I'm only including the exercise portion and references that I used to create the blog post for the English version.
 
 ### References
 * [https://gruss.cc/files/prefetch.pdf](https://gruss.cc/files/prefetch.pdf)
@@ -25,7 +25,7 @@ This blog post was intended for Indonesian audiences. I'm only including the exe
 * [https://www.kernel.org/doc/Documentation/x86/x86_64/mm.txt](https://www.kernel.org/doc/Documentation/x86/x86_64/mm.txt)
 
 ### Exercise
-Try to create / as AI to create a CTF challenge where the user is asked to run shellcode, and must find the flag which is stored at a random address in memory. Use a prefetch attack to leak the address of the flag, then print the flag.
+Try to create / ask AI to create a CTF challenge where the user is asked to run shellcode, and must find the flag which is stored at a random address in memory. Use a prefetch attack to leak the address of the flag, then print the flag.
 
 There is also a challenge on [Dreamhack](https://dreamhack.io/wargame/challenges/1055) with the same concept.
 
