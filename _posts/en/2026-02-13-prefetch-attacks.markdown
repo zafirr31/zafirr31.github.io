@@ -14,6 +14,9 @@ tags:
 ---
 
 <br>
+Difficulty: **Medium**
+
+<br>
 This blog post was intended for Indonesian audiences. I'm only including the exercise portion and references that I used to create the blog post for the English version.
 
 ### References

@@ -14,6 +14,9 @@ tags:
 ---
 
 <br>
+Tingkat kesulitan: **Sedang**
+
+<br>
 
 ### ASLR
 ASLR merupakan singkatan dari [Address Space Layout Randomization](https://en.wikipedia.org/wiki/Address_space_layout_randomization), yaitu teknik yang digunakan oleh sistem operasi untuk mengamankan proses di user space terhadap eksploitasi dengan _memory corruption_. Ini dicapai dengan meletakkan alamat kode atau data pada sebuah proses di lokasi yang acak, sehingga seorang penyerang tidak tau dimana letaknya yang pasti. Pada sistem operasi modern seperti Linux, Windows, dan MacOS, letak alamat pada kernel juga diacak. Hal ini disebut dengan [KASLR](https://lwn.net/Articles/569635/) (Kernel Address Space Layout Randomization). Linux sendiri sudah menggunakan KASLR sejak 2014. Untuk mempermudah, blog ini akan menggunakan sistem operasi Linux (di x86), tetapi hal yang dipelajari _mungkin_ dapat diterapkan di sistem lain.
