@@ -4,7 +4,7 @@ author: zafirr
 title:  "modprobe_path and core_pattern"
 description: Indo-focused vulnerability research post 2
 date: 2026-04-10
-last_modified_at: 2026-04-17
+last_modified_at: 2026-04-24
 categories: research
 lang: id
 tags:
@@ -206,7 +206,7 @@ int check_core_pattern() {
 
 int main() {
 
-    // Pretend this is a kernel vuln to overwrite core_pattern to /tmp/x
+    // Pretend this is a kernel vuln to overwrite core_pattern to |/tmp/x
     syscall(470, 1);
 
     if(!check_core_pattern()) fatal("core_pattern not ovewritten");
