@@ -1,10 +1,10 @@
 ---
 layout: post
 author: zafirr
-title:  "It's time we treated AI as cheating"
+title:  "It's time we treat AI as cheating"
 description: (I'm talking about CTFs)
 date: 2026-07-17
-last_modified_at: 2026-07-17
+last_modified_at: 2026-07-19
 categories: blog 
 lang: id
 tags:

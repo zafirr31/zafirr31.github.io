@@ -1,10 +1,10 @@
 ---
 layout: post
 author: zafirr
-title:  "It's time we treated AI as cheating"
+title:  "It's time we treat AI as cheating"
 description: (I'm talking about CTFs)
 date: 2026-07-17
-last_modified_at: 2026-07-17
+last_modified_at: 2026-07-19
 categories: blog 
 lang: en
 tags:
@@ -18,7 +18,7 @@ tags:
 I think it's clear just from the title, but I think it's time the CTF community treat the usage of AI during CTFs as cheating. In this post I'll try to go through the common opinions on this and try to give my own rebuttals to them.
 
 ## 1. It's 'just' a tool
-This was and probably one of the first opinions regarding AI usage when AI was starting to get good (like late 2024 early 2025 I think?). Those who agree with this opinion often mention other tools like angr, which often can - without using AI - [solve challenges automatically](https://cothan.blog/posts/anti-debug-angr/)
+This was probably one of the first opinions regarding AI usage when AI was starting to get good (like late 2024 early 2025 I think?). Those who agree with this opinion often mention other tools like angr, which often can - without using AI - [solve challenges automatically](https://cothan.blog/posts/anti-debug-angr/)
 
 Here's an example of someone with this opinion. I didn't include their name cause maybe their opinion has changed now, I didn't ask
 
